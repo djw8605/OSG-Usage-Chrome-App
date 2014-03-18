@@ -1,0 +1,16 @@
+{
+  "name": "OSG Usage",
+  "description": "OSG Usage View",
+  "version": "0.1",
+  "app": {
+    "background": {
+      "scripts": ["js/background.js"]
+    }
+  },
+  "permissions": [
+      "storage"
+  ],
+  
+  "_comment": "Use the icons later",
+  "_icons": { "16": "calculator-16.png", "128": "calculator-128.png" }
+}

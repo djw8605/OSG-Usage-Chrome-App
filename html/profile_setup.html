@@ -1,0 +1,38 @@
+
+
+<div class="modal-header">
+  <h3>Profile Setup</h3>
+</div>
+<div class="modal-body">
+
+  <accordion close-other="oneAtATime">
+    <accordion-group is-open="ResourceOwner.isopen">
+       <accordion-heading>
+        Resource Owner <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': isopen, 'glyphicon-chevron-right': !isopen}"></i>
+       </accordion-heading>
+       The Resource Owner template.
+    </accordion-group>
+    
+    <accordion-group is-open="VOManager.isopen">
+       <accordion-heading>
+        VO Manager <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': isopen, 'glyphicon-chevron-right': !isopen}"></i>
+       </accordion-heading>
+       The VO Manager template.
+    </accordion-group>
+    
+    <accordion-group is-open="OSGUser.isopen">
+       <accordion-heading>
+        OSG User <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': isopen, 'glyphicon-chevron-right': !isopen}"></i>
+       </accordion-heading>
+       The OSG User template.
+    </accordion-group>
+    
+  
+  </accordion>
+
+
+</div>
+
+<div class="modal-footer">
+  <button class="btn btn-primary" ng-click="save()">Save</button>
+  </div>
