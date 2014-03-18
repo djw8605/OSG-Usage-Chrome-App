@@ -9,18 +9,11 @@ var ProfileSetupControllerInstance = function($scope, $modalInstance) {
         $modalInstance.dismiss('cancel');
     }
     
-    $scope.templates = [
-        {
-            title: "Resource Owner",
-            content: "The Resource Owner Template"
+    
+    $scope.addProfile = function(profile) {
         
-        },
-        {
-            title: "VO Manager",
-            content: "The VO Manager Tempalate"
-        }
-        
-    ];
+        $modalInstance.close(profile);
+    }
     
     
 }
