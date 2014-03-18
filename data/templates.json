@@ -1,0 +1,39 @@
+{
+  "OSGUser": {
+    "name": "OSG User",
+    "id": "OSGUser",
+    "description": "The OSG User template shows the usage of resources for a particular user(s) or projects(s).",
+    "graphs": [
+      "UserGraph",
+      "StuffGraph"
+    ],
+    "requirements": [
+      "users",
+      "projects"
+    ]
+  },
+  "VOManager": {
+    "name": "VO Manager",
+    "id": "VOManager",
+    "description": "The VO Manager template shows the usage of resources for a particular VO.",
+    "graphs": [
+      "VOUserGraph",
+      "StuffGraph"
+    ],
+    "requirements": [
+      "vos"
+    ]
+  },
+  "ResourceOwner": {
+    "name": "Resource Owner",
+    "id": "ResourceOwner",
+    "description": "The Resource Owner template shows the resource usage of many users on a set of resources.",
+    "graphs": [
+      "ResourceGraph",
+      "AnotherGraph"
+    ],
+    "requirements": [
+      "resources"
+    ]
+  }
+}
