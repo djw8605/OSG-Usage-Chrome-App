@@ -1,10 +1,7 @@
 <html ng-app="osgUsageApp" ng-csp="">
 <head>
 
-<script src="js/angular.js"></script>
-<script src="js/ui-bootstrap-tpls-0.10.0.js"></script>
-<script src="js/controllers.js"></script>
-<script src="js/app.js"></script>
+<script data-main="js/main" src="js/require.js"></script>
 <link rel="stylesheet" media="all" href="css/bootstrap.min.css">
 <link rel="stylesheet" media="all" href="css/application.css">
 </head>
@@ -22,11 +19,14 @@
            <a href="#" class="dropdown-toggle" role="button">Profiles<b class="caret"></b></a>
            <ul class="dropdown-menu">
              <li ng-repeat="profile in profiles">
-               <a ng-href="profile/{{profile.url}}">{{profile.name}}</a>
+               <a ng-href="profile/{{profile.template.url}}">{{ profile.name }}</a>
              </li>
              <li class="divider"></li>
              <li>
                <a href="newprofile"><i class="glyphicon glyphicon-plus"></i>&nbsp;Create New</a>
+             </li>
+             <li>
+               <a ng-click="clearProfiles()">Clear Profiles</a>
              </li>
            </ul>
         </li>
@@ -38,8 +38,8 @@
 
 <div class="container">
 <div class="row">
-<div class="col-md-1">
-  <h1> Hello </h1>
+<div class="col-md-4">
+  <h1 ng-show="typeof({{currentProfile}}) != 'undefined'"> Current Profile: {{currentProfile.name}}</h1>
   
 </div>
 

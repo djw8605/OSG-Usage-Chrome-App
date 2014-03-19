@@ -10,7 +10,6 @@
   "permissions": [
       "storage"
   ],
-  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   
   "_comment": "Use the icons later",
   "_icons": { "16": "calculator-16.png", "128": "calculator-128.png" }
