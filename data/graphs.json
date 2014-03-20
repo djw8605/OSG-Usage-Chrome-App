@@ -1,0 +1,10 @@
+{
+    
+    
+  "glideinDailyPerUser": {
+      "baseUrl": "http://gratiaweb.grid.iu.edu/gratia/glidein_bar_graphs/glidein_dn_hours_bar",
+      "name": "Daily Hours Per User (Glidein)",
+      "description": "Daily hours per user from Glidein based hosts."
+  }
+
+}
