@@ -1,13 +1,14 @@
-<html ng-app="osgUsageApp" ng-csp="">
+<html ng-app ng-csp="">
 <head>
 
 <script data-main="js/main" src="js/require.js"></script>
 <link rel="stylesheet" media="all" href="css/bootstrap.min.css">
 <link rel="stylesheet" media="all" href="css/application.css">
+<link rel="stylesheet" media="all" href="css/angular-csp.css">
 </head>
 <body ng-controller="OSGUsageViewCtrl">
 
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">Usage</a>
@@ -38,8 +39,8 @@
 
 <div class="container">
 <div class="row">
-<div class="col-md-4">
-  <h1 ng-show="typeof({{currentProfile}}) != 'undefined'"> Current Profile: {{currentProfile.name}}</h1>
+<div class="col-md-6">
+  <h1 ng-show="currentProfile != undefined"> Current Profile: {{currentProfile.name}}</h1>
   
 </div>
 

@@ -29,6 +29,13 @@ define([
         
                 $modalInstance.close(template);
             }
+            
+            $scope.checkRequirements = function(template, requirement) {
+                if (template.requirements.indexOf(requirement) > -1)
+                    return true;
+                else
+                    return false;
+            }
     
 
     

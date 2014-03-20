@@ -1,1 +1,20 @@
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+/*
+Color scheme
+Redish: D74B4B
+gray: DCDDD8
+light blue: 475F77
+dark blue: 354B5E
+white: FFFFFF
+(source: https://kuler.adobe.com/Calm-and-clean-color-theme-3541268/)
+*/
+
+
+
+.navbar-default {
+    background: linear-gradient(top, #ebeced, #dedfe0);
+    background: -webkit-linear-gradient(top, #ebeced, #dedfe0);
+    
+}
+
