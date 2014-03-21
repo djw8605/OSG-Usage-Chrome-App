@@ -1,16 +1,23 @@
+ 
+app = angular.module('osgUsageApp', ['ui.bootstrap','osgUsageApp.controllers', 'osgUsageApp.settings', 'ngRoute', 'osgUsageApp.controller.graph' ])
+.config( [
+    '$compileProvider',
+    function( $compileProvider )
+    {   
+        $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|chrome-extension):/);
+        // Angular before v1.2 uses $compileProvider.urlSanitizationWhitelist(...)
+    }
+])
 
-define([
-    'angular',
-    'ui-bootstrap-tpls',
-    'controllers',
-    '../coffee/settings'
-    ], function(angular, ui_bootstrap_tpls, controllers) {
+.config(['$routeProvider', 
+    function($routeProvider) {
+        $routeProvider.
+        when ('/profile/:profileId', {
+            templateUrl: '../html/graphs.html'
+        }).
+        otherwise({
+            redirectTo: '/profile/_default'
+        })
         
         
-        return angular.module('osgUsageApp', ['ui.bootstrap','osgUsageApp.controllers', 'osgUsageApp.settings' ]);
-
-        
-           
-    });
-
-
+    }]);

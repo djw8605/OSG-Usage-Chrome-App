@@ -1,15 +1,22 @@
-define ['../js/angular'], () ->
-    
-    
-    class Graph
-        constructor: (@graphData, @$http, @$log) -> 
-            @queryParams = []
+
+
+graphControllerModule = angular.module 'osgUsageApp.controller.graph', []
+
+graphControllerModule.controller 'GraphContoller',
+
+    class GraphController
+        constructor: (@$scope, @$http, @$log) ->
+            @graphData = @$scope.graph
+            @$log.info "Current Graph: #{ @graphData.name }"
             
-        getImageUrl: ->
-            # In a chrome app, we need to pull down the images and save to disk
+        init: (@graphData) ->
             
             
-        setParams: (values)->
-            @queryParams[key] = value for key, value of values 
+        setParams: (values) ->
+            @queryParams[key] = value for key, value of values
             
+        
+        onMouseOver: (event) ->
             
+        getName: () ->
+            @graphData.name
