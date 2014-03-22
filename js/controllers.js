@@ -72,11 +72,11 @@
                     profile_array.push(profiles[key]);
                 }
                 $scope.profiles = profile_array
-                
                 $scope.currentProfile = profile;
-                $log.info($scope.profiles);
                 
-                $location.hash("#/profile/" + profile.template.id)
+                new_url = "/profile/" + profile.template.id;
+                $log.info("Redirecting to " + new_url)
+                $location.url(new_hash);
                 
                 /*
         
