@@ -36,7 +36,8 @@
 
     };
     
-    angular.module('osgUsageApp.controllers', ['ui.bootstrap', 'osgUsageApp.settings'])
+    angular.module('osgUsageApp.controllers', [ 'ui.bootstrap', 'osgUsageApp.settings', 
+                                                'osgUsageApp.controller.containergraph'])
     
     
     .controller('OSGUsageViewCtrl', function($scope, $modal, $log, settingsService, $location) {
@@ -53,7 +54,8 @@
             modalInstance.result.then(function(selectedTemplate) {
                 
                 // Create the profile
-                profile = { 'template': selectedTemplate, 'name': selectedTemplate.name };
+                profile = { 'template': selectedTemplate, 'name': selectedTemplate.name,
+                            'id': selectedTemplate.id };
         
                 // Modify the settings object accordingly
                 /*
@@ -76,7 +78,7 @@
                 
                 new_url = "/profile/" + profile.template.id;
                 $log.info("Redirecting to " + new_url)
-                $location.url(new_hash);
+                $location.url(new_url);
                 
                 /*
         

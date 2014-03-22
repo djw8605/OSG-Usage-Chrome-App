@@ -12,8 +12,9 @@ app = angular.module('osgUsageApp', ['ui.bootstrap','osgUsageApp.controllers', '
 .config(['$routeProvider', 
     function($routeProvider) {
         $routeProvider.
-        when ('/profile/:profileId', {
-            templateUrl: '../html/graphs.html'
+        when( '/profile/:profileId', {
+            templateUrl: '../html/graphs.html',
+            controller: 'GraphContainerCtrl'
         }).
         otherwise({
             redirectTo: '/profile/_default'
