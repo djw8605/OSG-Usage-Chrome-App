@@ -10,8 +10,13 @@ graphControllerModule.controller 'GraphContoller',
             @$log.info "Current Graph: #{ @graphData }"
             @$log.info "Graph scope: #{@$scope.graph}"
             @graphService.getGraph(@$scope.name).then (@graphData) =>
-                @$scope.graphUrl = @graphData.baseUrl
+                # Get the url @$scope.graphUrl 
+                @graphService.getUrl(@graphData.baseUrl, @queryParams).then (graphUrl) =>
+                    @$scope.graphUrl = graphUrl
+                    
                 @$log.info("Got URL #{@$scope.graphUrl}")
+                @$scope.name = @graphData.name
+                @$scope.description = @graphData.description
             , (reason) =>
                 @$log.info("Refused to load URL because #{reason}")
             

@@ -5,8 +5,10 @@
     ng-controller="GraphContoller"
     ng-click="onClick()"
     ng-mouseover="onMouseOver()">
+    <h3>{{ name }}</h3>
+    <p> {{ description}} </p>
       <img ng-src="{{graphUrl}}">
-      <h3>{{ name }}</h3>
+      
     </li>
   </ul>
 </div>

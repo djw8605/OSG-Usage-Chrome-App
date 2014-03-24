@@ -8,7 +8,8 @@
     }
   },
   "permissions": [
-      "storage"
+      "storage",
+      "http://gratiaweb.grid.iu.edu/gratia/"
   ],
   
   "_comment": "Use the icons later",

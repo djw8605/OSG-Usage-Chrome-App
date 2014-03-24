@@ -18,3 +18,17 @@ white: FFFFFF
     
 }
 
+html,body { height:100%; }
+
+body {
+    background: #354B5E;
+}
+
+div.graphContent {
+    background-color: White;
+    border: 5px solid;
+    border-radius: 5px;
+    border-color: #475F77;
+    height: 100%;
+}
+

@@ -32,7 +32,7 @@
            <a href="#" class="dropdown-toggle" role="button">Profiles<b class="caret"></b></a>
            <ul class="dropdown-menu">
              <li ng-repeat="profile in profiles">
-               <a href="profile/{{profile.id}}">{{ profile.name }}</a>
+               <a ng-href="#profile/{{profile.id}}">{{ profile.name }}</a>
              </li>
              <li class="divider"></li>
              <li>
@@ -49,7 +49,7 @@
 </nav>  
 
 
-<div class="container">
+<div class="container graphContent">
 <div class="row">
 <div class="col-md-12">
 
