@@ -4,9 +4,9 @@
     <li ng-repeat="graph in graphs" class="graph-item"
     ng-controller="GraphContoller"
     ng-click="onClick()"
-    ng-init="init(graph)">
-      <img ng-src="{{graph.imageUrl}}">
-      <h3>{{ getName() }}</h3>
+    ng-mouseover="onMouseOver()">
+      <img ng-src="{{graphUrl}}">
+      <h3>{{ name }}</h3>
     </li>
   </ul>
 </div>

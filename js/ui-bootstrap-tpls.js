@@ -1536,7 +1536,7 @@ angular.module('ui.bootstrap.modal', ['ui.bootstrap.transition'])
           domEl.bind(transitionEndEventName, function () {
             $timeout.cancel(timeout);
             afterAnimating();
-            scope.$apply();
+            //scope.$apply();
           });
         } else {
           // Ensure this call is async
