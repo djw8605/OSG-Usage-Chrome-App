@@ -59,11 +59,11 @@
         
                 
                 settingsService.addProfile(profile)
-                profile_array = new Array();
+                
                 
                 // Get the profiles, and put them in the menu
                 settingsService.getProfiles().then($scope.updateProfileMenu);
-
+                $scope.currentProfile = profile;
                 $scope.redirectToProfile(profile.id);
                 
             });
@@ -78,11 +78,11 @@
         };
         
         $scope.updateProfileMenu = function(profiles) {
+            profile_array = new Array();
             for (var key in profiles) {
                 profile_array.push(profiles[key]);
             }
             $scope.profiles = profile_array
-            $scope.currentProfile = profile;
         };
 
         // Check for the profiles
@@ -98,6 +98,7 @@
                     
                     // Get the default profile and redirect to it
                     settingsService.getDefaultProfile().then(function(profile){
+                        $scope.currentProfile = profile;
                         $log.info("Default profile is: " + profile.name)
                         $scope.redirectToProfile(profile.id);
                     });

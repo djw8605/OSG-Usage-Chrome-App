@@ -14,15 +14,22 @@ settings.service 'settingsService',
             if ( ! items.settings? )
                 chrome.storage.local.get 'settings', (items) =>
                     if ( ! items.settings? )
-                        items.settings = []
+                        @settings = {}
                         @settings_defer.resolve()
+                        @$log.info("new settings")
                     else
-                        @settings = items.settings
+                        @settings = angular.fromJson(items.settings)
                         @settings_defer.resolve()
+                        @$log.info("from local: Settings = #{items.settings}")
             else
-                @settings = items.settings
+                @settings = angular.fromJson(items.settings)
                 @settings_defer.resolve()
+                @$log.info("from sync: Settings = #{items.settings}")
 
+        chrome.storage.sync.get 'test', (items) =>
+            @$log.info("Test:")
+            @$log.info(items)
+            
     
     addNotify: (toCallback)->
         # Function that users can call to capture changes in the configuration
@@ -30,12 +37,29 @@ settings.service 'settingsService',
         @notify_list.push toCallback
     
     syncSettings: ->
-        chrome.storage.sync.set {settings: @settings}, () =>
+        json_string = angular.toJson(@settings)
+        jsony = JSON.stringify(@settings)
+        chrome.storage.sync.set {settings: json_string}, () =>
             if (chrome.runtime.lastError?)
                 @$log.error("Error setting settings: #{chrome.runtime.lastError}")
-        chrome.storage.local.set {settings: @settings}, () =>
+            else
+                @$log.info("Saving to sync was successful!")
+        chrome.storage.local.set {settings: json_string}, () =>
             if (chrome.runtime.lastError?)
                 @$log.error("Error setting settings: #{chrome.runtime.lastError}")
+            else
+                @$log.info("Saving to local was successful!")
+                
+        chrome.storage.sync.get 'settings', (items) =>
+            @$log.info("Settings:")
+            @$log.info(items)
+        
+        chrome.storage.sync.get 'test', (items) =>
+            @$log.info("Test:")
+            @$log.info(items)
+                
+        chrome.storage.sync.set {test: "test_setting"}
+        
         for func in @notify_list
             func()
 
@@ -60,17 +84,18 @@ settings.service 'settingsService',
         @settings_defer.promise.then () =>
             if ( @settings.default_profile? )
                 if @settings.profiles[@settings.default_profile]?
-                    @settings.profiles[@settings.default_profile]
+                    defaultProfile_defer.resolve(@settings.profiles[@settings.default_profile])
                 else
-                    null
+                    defaultProfile_defer.reject("Default Profile (#{@settings.default_profile}) doest not exist in list of profiles")
             else
-                null
+                defaultProfile_defer.reject("No default profile defined")
+                
         defaultProfile_defer.promise
 
 
     addProfile: (profile) ->
         if ( ! @settings.profiles?)
-            @settings.profiles = []
+            @settings.profiles = {}
         @settings.profiles[profile.id] = profile
         @settings.default_profile = profile.id
         @syncSettings()
