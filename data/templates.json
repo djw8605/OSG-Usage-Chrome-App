@@ -5,7 +5,7 @@
     "description": "The OSG User template shows the usage of resources for a particular user(s) or projects(s).",
     "graphs": [
       "glideinDailyPerUser",
-      "StuffGraph"
+      "dailyPerProject"
     ],
     "requirements": [
       "users",

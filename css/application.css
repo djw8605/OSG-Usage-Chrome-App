@@ -18,7 +18,9 @@ white: FFFFFF
     
 }
 
-html,body { height:100%; }
+
+html,body { overflow-y: scroll; }
+
 
 body {
     background: #354B5E;
@@ -29,13 +31,9 @@ div.graphContent {
     border: 5px solid;
     border-radius: 5px;
     border-color: #475F77;
-    height: 100%;
 }
 
 div.graphs div.graph-item {
     padding: 15px;
-    border: 5px solid;
-    border-color: #D74B4B;
-    border-radius: 5px;
 }
 

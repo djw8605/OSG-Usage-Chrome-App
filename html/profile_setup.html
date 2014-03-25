@@ -21,7 +21,7 @@
         <div ng-show="checkRequirements(template, 'users')">
           <div class="form-group">
           <label for="users">Users</label>
-          <input type="text" class="form-control" name="users" placeholder="Username" ng-model="template.users" />
+          <input type="text" class="form-control" name="users" placeholder="Username" ng-model="template.params.users" />
           <span class="help-block">A comma separated list of usernames to include in the data.</span>
           </div>
         </div>
@@ -29,21 +29,21 @@
         <div ng-show="checkRequirements(template, 'projects')">
           <div class="form-group">
           <label for="projects">Projects</label>
-          <input type="text" class="form-control" name="projects" placeholder="Project ID" ng-model="template.projects" /> 
+          <input type="text" class="form-control" name="projects" placeholder="Project ID" ng-model="template.params.projects" /> 
           <span class="help-block">A comma separated list of project id's to include in the data.  List of available projects on <a href="https://oim.grid.iu.edu/oim/project">OIM</a>.</span>
           </div>
         </div>
         <div ng-show="checkRequirements(template, 'vos')">
           <div class="form-group">
           <label for="vos">VO's</label>
-          <input type="text" class="form-control" name="vos" placeholder="Virtual Organization" ng-model="template.vos" /> 
+          <input type="text" class="form-control" name="vos" placeholder="Virtual Organization" ng-model="template.params.vos" /> 
           <span class="help-block">A comma separated list of virtual organizaitons to include in the data.  A list of VO's is available on <a href="https://oim.grid.iu.edu/oim/vo">OIM</a>.</span>
           </div>
         </div>
         <div ng-show="checkRequirements(template, 'resources')">
           <div class="form-group">
           <label for="resources">Resources</label>
-          <input type="text" class="form-control" name="resources" placeholder="Resource Name" ng-model="template.resources" /> 
+          <input type="text" class="form-control" name="resources" placeholder="Resource Name" ng-model="template.params.resources" /> 
           <span class="help-block">A comma separated list of resources to include in the data.  A topology of resources is available on <a href="https://oim.grid.iu.edu/oim/topology">OIM</a>.</span>
           </div>
         </div>
