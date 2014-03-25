@@ -25,10 +25,6 @@ settings.service 'settingsService',
                 @settings = angular.fromJson(items.settings)
                 @settings_defer.resolve()
                 @$log.info("from sync: Settings = #{items.settings}")
-
-        chrome.storage.sync.get 'test', (items) =>
-            @$log.info("Test:")
-            @$log.info(items)
             
     
     addNotify: (toCallback)->
@@ -38,7 +34,6 @@ settings.service 'settingsService',
     
     syncSettings: ->
         json_string = angular.toJson(@settings)
-        jsony = JSON.stringify(@settings)
         chrome.storage.sync.set {settings: json_string}, () =>
             if (chrome.runtime.lastError?)
                 @$log.error("Error setting settings: #{chrome.runtime.lastError}")
@@ -49,16 +44,6 @@ settings.service 'settingsService',
                 @$log.error("Error setting settings: #{chrome.runtime.lastError}")
             else
                 @$log.info("Saving to local was successful!")
-                
-        chrome.storage.sync.get 'settings', (items) =>
-            @$log.info("Settings:")
-            @$log.info(items)
-        
-        chrome.storage.sync.get 'test', (items) =>
-            @$log.info("Test:")
-            @$log.info(items)
-                
-        chrome.storage.sync.set {test: "test_setting"}
         
         for func in @notify_list
             func()
