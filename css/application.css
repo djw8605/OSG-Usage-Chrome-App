@@ -32,3 +32,10 @@ div.graphContent {
     height: 100%;
 }
 
+div.graphs div.graph-item {
+    padding: 15px;
+    border: 5px solid;
+    border-color: #D74B4B;
+    border-radius: 5px;
+}
+

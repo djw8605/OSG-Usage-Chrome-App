@@ -36,10 +36,10 @@
              </li>
              <li class="divider"></li>
              <li>
-               <a href="newprofile"><i class="glyphicon glyphicon-plus"></i>&nbsp;Create New</a>
+               <a ng-click="launchProfileCreation()"><i class="glyphicon glyphicon-plus"></i>&nbsp;Create New</a>
              </li>
              <li>
-               <a ng-click="clearProfiles()">Clear Profiles</a>
+               <a ng-click="clearProfiles()"><i class="glyphicon glyphicon-minus"></i>&nbsp;Clear Profiles</a>
              </li>
            </ul>
         </li>
@@ -53,7 +53,7 @@
 <div class="row">
 <div class="col-md-12">
 
-  <div ng-view> </div>
+  <div ng-show="profiles" ng-view> </div>
   <h1 ng-click="clicker()" ng-show="currentProfile != undefined"> Current Profile: {{currentProfile.name}}</h1>
 </div>
 

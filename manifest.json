@@ -1,5 +1,5 @@
 {
-  "name": "OSG Usage",
+  "name": "OSG Usage Viewer",
   "description": "OSG Usage View",
   "version": "0.1",
   "app": {
@@ -12,6 +12,5 @@
       "http://gratiaweb.grid.iu.edu/gratia/"
   ],
   
-  "_comment": "Use the icons later",
-  "_icons": { "16": "calculator-16.png", "128": "calculator-128.png" }
+  "icons": { "16": "osglogo.16.png"}
 }
