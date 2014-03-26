@@ -4,11 +4,53 @@
     <div ng-repeat="graph in graphs" class="col-md-12 graph-item"
     ng-controller="GraphContoller"
     ng-click="onClick()"
-    ng-mouseover="onMouseOver()">
-    <h3 class="graphName">{{ name }}</h3>
-    <p class="graphDescription"> {{ description}} </p>
-      <img ng-src="{{graphUrl}}">
-      
+    ng-mouseover="onMouseOver()"
+    ng-init="init(profile)">
+    
+
+      <div class="row">
+        <div class="graphImgDiv col-md-8">
+    <img class="img-responsive" ng-src="{{graphUrl}}">
     </div>
-  </div>
+    <div class="col-md-3 graphInfo">
+      <h3 class="graphName">{{ name }}</h3>
+      <p class="graphDescription"> {{ description}} </p>
+      <ul class="graphOptions">
+        <div class="row">
+        <div class="col-md-4">
+        <a href="#" class="graphOptionLink">
+        <li>
+          <i class="glyphicon glyphicon-link"> </i>
+          <span class="graphOptionDesc">Get Link</span>
+        </li>
+        </a>
+        </div>
+        
+        <div class="col-md-4">
+        <a href="#" class="graphOptionLink">
+        <li>
+          <i class="glyphicon glyphicon-pencil"> </i>
+          <span class="graphOptionDesc">Edit Graph</span>
+        </li>
+        </a>
+        </div>
+        <div class="col-md-4">
+        <a href="#" class="graphOptionLink">
+        <li>
+          <i class="glyphicon glyphicon-refresh"> </i>
+          <span class="graphOptionDesc">Refresh</span>
+        </li>
+        </a>
+        </div>
+        
+        </div> <!-- Row -->
+        
+        
+      </ul>
+    </div>
+    </div>
+      <hr />
+    </div>
+
+</div>
 </div>

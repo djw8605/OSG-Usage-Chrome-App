@@ -20,7 +20,7 @@ graphControllerModule.controller 'GraphContoller',
             , (reason) =>
                 @$log.info("Refused to load URL because #{reason}")
             
-        init: (@graphData) ->
+        init: (@profile) ->
             @$log.info "Got graph data: #{@graphData}"
             
             

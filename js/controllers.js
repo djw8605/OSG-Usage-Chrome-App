@@ -23,7 +23,7 @@
         $scope.addProfile = function(template) {
             
             // Get the query params
-            $log.info("Exporting template")
+            $log.info("Exporting template   ")
             $log.info(template)
             
             $modalInstance.close(template);

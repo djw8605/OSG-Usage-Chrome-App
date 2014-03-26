@@ -55,13 +55,17 @@ settings.service 'settingsService',
         profile_defer.promise
         
     getProfile: (profileId) ->
-        if ( @settings.profiles? )
-            if ( @settings.profiles[profileId]? )
-                @settings.profiles[profileId]
+        profile_defer = @$q.defer()
+        @settings_defer.promise.then () =>
+            if ( @settings.profiles? )
+                if ( @settings.profiles[profileId]? )
+                    profile_defer.resolve(@settings.profiles[profileId])
+                else
+                    profile_defer.resolve(null)
             else
-                null
-        else
-            null
+                profile_defer.resolve(null)
+                
+        profile_defer.promise
         
             
     getDefaultProfile: () ->
