@@ -15,7 +15,7 @@ white: FFFFFF
     min-height: 30;
 }
 
-.navbar-header > a, .navbar-nav > li a {
+.navbar-header > a, .navbar-nav > li > a {
     padding: 10px;
     height: auto;
 }
