@@ -12,6 +12,7 @@ coffee/%.js: coffee/%.coffee
 all: coffee/*.js
 	
 	zip -r $(ZIPNAME) js/*
+	zip -r $(ZIPNAME) coffee/*.js
 	zip -r $(ZIPNAME) html/*
 	zip -r $(ZIPNAME) manifest.json
 	zip -r $(ZIPNAME) fonts/*
