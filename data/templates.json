@@ -14,7 +14,8 @@
     "requirements": [
       "users",
       "projects"
-    ]
+    ],
+    "queryParams": {}
   },
   "VOManager": {
     "name": "VO Manager",
@@ -30,7 +31,8 @@
     },
     "requirements": [
       "vos"
-    ]
+    ],
+    "queryParams": {}
   },
   "ResourceOwner": {
     "name": "Resource Owner",
@@ -46,6 +48,7 @@
     },
     "requirements": [
       "resources"
-    ]
+    ],
+    "queryParams": {}
   }
 }

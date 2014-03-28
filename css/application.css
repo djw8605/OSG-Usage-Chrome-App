@@ -20,6 +20,11 @@ white: FFFFFF
     height: auto;
 }
 
+.navbar-text {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 .navbar-default {
     background: linear-gradient(top, #ebeced, #dedfe0);
     background: -webkit-linear-gradient(top, #ebeced, #dedfe0);

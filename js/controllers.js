@@ -55,11 +55,10 @@
             });
     
             // Respond to the modal response
-            modalInstance.result.then(function(selectedTemplate, queryParams) {
+            modalInstance.result.then(function(selectedTemplate) {
                 
                 // The template is now the initial profile!
                 profile = selectedTemplate;
-                profile.queryParams = queryParams;
                 
                 settingsService.addProfile(profile);
                 

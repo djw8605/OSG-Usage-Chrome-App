@@ -7,6 +7,8 @@ graphControllerModule.controller 'GraphContoller',
     class GraphController
         constructor: (@$scope, @$http, @$log, @graphService, @$q, @$rootScope) ->
             
+            @queryParams = {}
+            
             @$log.info "Graph scope: #{@$scope.graphId}"
             
             # Define a promise to be fufilled when we have the profile information
@@ -30,8 +32,9 @@ graphControllerModule.controller 'GraphContoller',
                 # Get the url @$scope.graphUrl 
                 @graphService.getUrl(@graphData.baseUrl, @queryParams).then (graphUrl) =>
                     @$scope.graphUrl = graphUrl
+                    @$log.info("Got URL #{@$scope.graphUrl}")
                     
-                @$log.info("Got URL #{@$scope.graphUrl}")
+                
                 @$scope.name = @graphData.name
                 @$scope.description = @graphData.description
             , (reason) =>

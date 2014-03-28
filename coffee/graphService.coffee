@@ -53,6 +53,16 @@ graphModule.service 'graphService',
                     )
                 )
         
+        convertParams: (params) ->
+            # For each parameter, convert the value from a comma (and space) delimited
+            # to a | symbol delimited.
+            newParams = {}
+            for key, value of params
+                value = value.replace /\s*\,\s*/, '|'
+                newParams[key] = value
+                
+            newParams
+        
         
         getUrl: (baseUrl, queryParams) ->
             # In this funciton, we get the query string, download the graph,
@@ -64,10 +74,10 @@ graphModule.service 'graphService',
                 # Need a better way to uniqify the graph file name
                 filename = Math.floor((Math.random() * 1000000) + 1).toString() + '.png'
                 fs_url = @fs.root.toURL() + @graphFolder + '/' + filename
-                url_get = @$http.get(baseUrl, {params: queryParams, responseType: 'blob'}).success (data) =>
+                url_get = @$http.get(baseUrl, {params: @convertParams(queryParams), responseType: 'blob'}).success (data) =>
                     @$log.info("Retrieved graph...")
                     data.name = filename
-                    @writeFile(data)
+                    # @writeFile(data)
                     
                     deferred_graphUrl.resolve(window.URL.createObjectURL(data))
                 
