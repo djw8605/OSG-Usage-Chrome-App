@@ -12,7 +12,8 @@ graphContainerControllerModule.controller 'GraphContainerCtrl',
                     @$log.warn("Got null for profile, probably at wrong URL.")
                 else
                     @$log.info("Profile Name: #{profile.name}")
-                    @$log.info("Profile Graphs: #{profile.template.graphs}")
-                    @$scope.graphs = profile.template.graphs
+                    @$log.info("Profile Graphs: #{profile.graphs}")
+                    @$scope.profile = profile
+                    @$scope.graphs = profile.graphs
             
             

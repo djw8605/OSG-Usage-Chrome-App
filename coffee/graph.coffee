@@ -5,25 +5,27 @@ graphControllerModule = angular.module 'osgUsageApp.controller.graph', ['osgUsag
 graphControllerModule.controller 'GraphContoller',
 
     class GraphController
-        constructor: (@$scope, @$http, @$log, @graphService, @$q) ->
+        constructor: (@$scope, @$http, @$log, @graphService, @$q, @$rootScope) ->
             
-            @$scope.name = @$scope.graph
-            @$log.info "Current Graph: #{ @graphData }"
-            @$log.info "Graph scope: #{@$scope.graph}"
+            @$log.info "Graph scope: #{@$scope.graphId}"
             
             # Define a promise to be fufilled when we have the profile information
             @profile_defer = @$q.defer()
             
+            # Grab the profile from the rootScope scope (probably a bad idea)
+            @profile = @$rootScope.profile
+            @$scope.profile = @profile
+            
             # wait for both the graph information and the profile information
             # The profile contains system wide query parameters
-            @$q.all([ @graphService.getGraph(@$scope.name), @profile_defer.promise ]).then(@graphData, @profile) =>
+            @graphService.getGraph(@$scope.graphId).then (@graphData) =>
                 
                 # Add the profile's query parameters
                 @setParams(@profile.queryParams)
                 
                 # Add the graph's query params
-                if ( @scope.graph.queryParams? )
-                    @setParams(@scope.graph.queryParams)
+                if ( @$scope.graphData.queryParams? )
+                    @setParams(@$scope.graphData.queryParams)
                 
                 # Get the url @$scope.graphUrl 
                 @graphService.getUrl(@graphData.baseUrl, @queryParams).then (graphUrl) =>

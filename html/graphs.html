@@ -1,11 +1,10 @@
 
 <div>
   <div class="row graphs">
-    <div ng-repeat="graph in graphs" class="col-md-12 graph-item"
+    <div ng-repeat="(graphId, graphData) in graphs" class="col-md-12 graph-item"
     ng-controller="GraphContoller"
     ng-click="onClick()"
-    ng-mouseover="onMouseOver()"
-    ng-init="init(profile)">
+    ng-mouseover="onMouseOver()">
     
 
       <div class="row">

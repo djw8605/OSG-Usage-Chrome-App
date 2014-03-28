@@ -44,7 +44,7 @@
                                                 'osgUsageApp.controller.containergraph'])
     
     
-    .controller('OSGUsageViewCtrl', function($scope, $modal, $log, settingsService, $location) {
+    .controller('OSGUsageViewCtrl', function($scope, $modal, $log, settingsService, $location, $rootScope) {
 
         $scope.launchProfileCreation = function() {
             $log.info("Opening Profile Creation...");
@@ -67,6 +67,7 @@
                 // Get the profiles, and put them in the menu
                 settingsService.getProfiles().then($scope.updateProfileMenu);
                 $scope.currentProfile = profile;
+                $rootScope.profile = profile
                 $scope.redirectToProfile(profile.id);
                 
             });
@@ -102,6 +103,7 @@
                     // Get the default profile and redirect to it
                     settingsService.getDefaultProfile().then(function(profile){
                         $scope.currentProfile = profile;
+                        $rootScope.profile = profile
                         $log.info("Default profile is: " + profile.name)
                         $scope.redirectToProfile(profile.id);
                     });
