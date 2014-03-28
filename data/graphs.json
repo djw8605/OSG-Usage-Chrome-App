@@ -4,13 +4,26 @@
   "glideinDailyPerUser": {
       "baseUrl": "http://gratiaweb.grid.iu.edu/gratia/glidein_bar_graphs/glidein_dn_hours_bar",
       "name": "Daily hours per user (Glidein)",
-      "description": "Daily hours per user from Glidein based hosts."
+      "description": "Daily wallclock hours per user from Glidein based hosts."
   },
   
   "dailyPerProject": {
       "baseUrl": "http://gratiaweb.grid.iu.edu/gratia/bar_graphs/project_hours_bar",
       "name": "Daily hours per project (Glidein)",
-      "description": "Daily hours per project from Glidein based hosts."
+      "description": "Daily wallclock hours per project from Glidein based hosts."
+  },
+  
+  "dailyPerFacility": {
+      "baseUrl": "http://gratiaweb.grid.iu.edu/gratia/bar_graphs/facility_hours_bar_smry",
+      "name": "Daily hours per resource(s)",
+      "description": "Daily wallclock hours per resource(s) for OSG sites"
+  },
+  
+  "dailyHoursPerVO": {
+      "baseUrl": "http://gratiaweb.grid.iu.edu/gratia/bar_graphs/vo_hours_bar_smry",
+      "name": "Daily hours per VO(s)",
+      "description": "Daily wallclock hours per VO(s)"
   }
+  
 
 }

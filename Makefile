@@ -1,10 +1,16 @@
 
 ZIPNAME=osg-chrome-app.zip
+# coffeefiles := coffee/settings.coffee coffee/graph.coffee coffee/graphContainerCtrl.coffee coffee/graphService.coffee 
+# compiledcofee := $(coffeefiles:%.coffee=%.js)
 
 clean:
 	rm -f $(ZIPNAME)
 
-all:
+coffee/%.js: coffee/%.coffee
+	coffee -c $<
+
+all: coffee/*.js
+	
 	zip -r $(ZIPNAME) js/*
 	zip -r $(ZIPNAME) html/*
 	zip -r $(ZIPNAME) manifest.json

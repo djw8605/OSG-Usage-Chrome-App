@@ -34,7 +34,7 @@ graphControllerModule.controller 'GraphContoller',
                     @$scope.graphUrl = graphUrl
                     @$log.info("Got URL #{@$scope.graphUrl}")
                     
-                
+                # Set the scope variables for the View
                 @$scope.name = @graphData.name
                 @$scope.description = @graphData.description
             , (reason) =>

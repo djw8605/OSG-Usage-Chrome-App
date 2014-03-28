@@ -39,10 +39,10 @@
     "id": "ResourceOwner",
     "description": "The Resource Owner template shows the resource usage of many users on a set of resources.",
     "graphs": {
-      "ResourceGraph": {
+      "dailyPerFacility": {
           "queryParams": {}
       },
-      "AnotherGraph": {
+      "dailyHoursPerVO": {
           "queryParams": {}
       }
     },
