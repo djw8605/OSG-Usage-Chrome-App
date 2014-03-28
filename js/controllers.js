@@ -57,12 +57,11 @@
             // Respond to the modal response
             modalInstance.result.then(function(selectedTemplate, queryParams) {
                 
-                // Create the profile
-                profile = { 'template': selectedTemplate, 'name': selectedTemplate.name,
-                            'id': selectedTemplate.id, 'queryParams': queryParams };
-        
+                // The template is now the initial profile!
+                profile = selectedTemplate;
+                profile.queryParams = queryParams;
                 
-                settingsService.addProfile(profile)
+                settingsService.addProfile(profile);
                 
                 
                 // Get the profiles, and put them in the menu
