@@ -66,14 +66,21 @@
                 
                 // Get the profiles, and put them in the menu
                 settingsService.getProfiles().then($scope.updateProfileMenu);
-                $scope.currentProfile = profile;
                 $rootScope.profile = profile
+                $rootScope.$broadcast('profileUpdate');
+                
                 $scope.redirectToProfile(profile.id);
                 
             });
         
     
         };
+        
+        $scope.profileUpdate = function(event) {
+            // The profile has been updated, take the rootScope's value and put it in currentProfile
+            $log.info("Profile was updated, updating currentProfile");
+            $scope.currentProfile = $rootScope.profile
+        }
         
         $scope.redirectToProfile = function(profileId) {
             new_url = "/profile/" + profileId;
@@ -102,8 +109,9 @@
                     
                     // Get the default profile and redirect to it
                     settingsService.getDefaultProfile().then(function(profile){
-                        $scope.currentProfile = profile;
-                        $rootScope.profile = profile
+                        $rootScope.profile = profile;
+                        $rootScope.$broadcast('profileUpdate');
+
                         $log.info("Default profile is: " + profile.name)
                         $scope.redirectToProfile(profile.id);
                     });
@@ -118,7 +126,8 @@
             // Remove the profiles and the default profile
             settingsService.removeProfiles()
         }
-
+        
+        $scope.$on('profileUpdate', $scope.profileUpdate)
         $scope.checkForProfiles();
 
     });
