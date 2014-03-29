@@ -62,6 +62,9 @@ graphControllerModule.controller 'GraphContoller',
                         @queryParams
                 }
             });
-        
+            modalInstance.result.then (params) =>
+                @$log.info("Graph edit closed...")
+                @$log.info(params)
+                @queryParams = params
         
             
