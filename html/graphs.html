@@ -3,7 +3,7 @@
   <div class="row graphs">
     <div ng-repeat="(graphId, graphData) in graphs" class="col-md-12 graph-item"
     ng-controller="GraphContoller"
-    ng-click="onClick()"
+    
     ng-mouseover="onMouseOver()">
     
 
@@ -17,29 +17,24 @@
       <ul class="graphOptions">
         <div class="row">
         <div class="col-md-4">
-        <a href="#" class="graphOptionLink">
-        <li>
+        <li class="graphOptionLink">
           <i class="glyphicon glyphicon-link"> </i>
           <span class="graphOptionDesc">Get Link</span>
         </li>
-        </a>
         </div>
         
         <div class="col-md-4">
-        <a href="#" class="graphOptionLink">
-        <li>
+        <li ng-click="openGraphEdit()" class="graphOptionLink">
           <i class="glyphicon glyphicon-pencil"> </i>
           <span class="graphOptionDesc">Edit Graph</span>
         </li>
-        </a>
+        
         </div>
         <div class="col-md-4">
-        <a href="#" class="graphOptionLink">
-        <li>
+        <li class="graphOptionLink">
           <i class="glyphicon glyphicon-refresh"> </i>
           <span class="graphOptionDesc">Refresh</span>
         </li>
-        </a>
         </div>
         
         </div> <!-- Row -->

@@ -1,13 +1,14 @@
 
 
-graphControllerModule = angular.module 'osgUsageApp.controller.graph', ['osgUsageApp.graphService']
+graphControllerModule = angular.module 'osgUsageApp.controller.graph', ['osgUsageApp.graphService', 'osgUsageApp.controller.editparams', 'ui.bootstrap']
 
 graphControllerModule.controller 'GraphContoller',
 
     class GraphController
-        constructor: (@$scope, @$http, @$log, @graphService, @$q, @$rootScope) ->
+        constructor: (@$scope, @$http, @$log, @graphService, @$q, @$rootScope, @$modal) ->
             
             @queryParams = {}
+            @$scope.openGraphEdit = @openGraphEdit
             
             @$log.info "Graph scope: #{@$scope.graphId}"
             
@@ -51,4 +52,16 @@ graphControllerModule.controller 'GraphContoller',
         
         onMouseOver: () ->
             
+        openGraphEdit: () =>
+            @$log.info "Open edit graph"
+            modalInstance = @$modal.open({
+                templateUrl: 'html/edit_params.html',
+                controller: 'EditParamsCtrl',
+                resolve: {
+                    queryParams: () =>
+                        @queryParams
+                }
+            });
+        
+        
             
