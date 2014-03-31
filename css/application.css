@@ -11,6 +11,7 @@ white: FFFFFF
 (source: https://kuler.adobe.com/Calm-and-clean-color-theme-3541268/)
 */
 
+/*
 .navbar {
     min-height: 30;
 }
@@ -24,7 +25,7 @@ white: FFFFFF
     margin-top: 10px;
     margin-bottom: 10px;
 }
-
+*/
 .navbar-default {
     background: linear-gradient(top, #ebeced, #dedfe0);
     background: -webkit-linear-gradient(top, #ebeced, #dedfe0);

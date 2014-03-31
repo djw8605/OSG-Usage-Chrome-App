@@ -1,7 +1,7 @@
 
 
     
-    var ProfileSetupControllerInstance = function($scope, $modalInstance, $http, $log) {
+    var ProfileSetupControllerInstance = function($scope, $modalInstance, $http, $log, $resource) {
 
         $http.get('../data/templates.json').success(function(data) {
            $log.info("Got templates data!");
@@ -24,9 +24,26 @@
             
             // Get the query params
             $log.info("Exporting template   ")
-            $log.info(template)
             
-            $modalInstance.close(template);
+            
+            if (template.customURL != null) {
+                // Get the JSON from the URL
+                var downloaded_profile = $resource(template.customURL).get({}, function() {
+                    $log.info("Got downloaded profile:");
+                    $log.info(downloaded_profile);
+                    // angular.copy(downloaded_profile.profile_json, template);
+                    returnDict = {};
+                    profile = $.parseJSON(downloaded_profile.profile_json)
+                    profile.id = downloaded_profile.id
+                    $log.info(profile)
+                    $modalInstance.close(profile);
+                });
+            } else {
+                $log.info(template)
+                $modalInstance.close(template);
+            }
+            
+
         }
         
         $scope.checkRequirements = function(template, requirement) {
@@ -41,10 +58,10 @@
     };
     
     angular.module('osgUsageApp.controllers', [ 'ui.bootstrap', 'osgUsageApp.settings', 
-                                                'osgUsageApp.controller.containergraph'])
+                                                'osgUsageApp.controller.containergraph', 'ngResource', 'osgUsageApp.controller.sharedialog'])
     
     
-    .controller('OSGUsageViewCtrl', function($scope, $modal, $log, settingsService, $location, $rootScope) {
+    .controller('OSGUsageViewCtrl', function($scope, $modal, $log, settingsService, $location, $rootScope, $resource) {
 
         $scope.launchProfileCreation = function() {
             $log.info("Opening Profile Creation...");
@@ -74,6 +91,18 @@
         
     
         };
+        
+        $scope.shareProfile = function() {
+            // Share the current profile
+
+            var modalInstance = $modal.open({
+                templateUrl: 'html/shareDialog.html',
+                controller: 'ShareDiaglogCtrl',
+            });
+            
+            
+
+        }
         
         $scope.profileUpdate = function(event) {
             // The profile has been updated, take the rootScope's value and put it in currentProfile

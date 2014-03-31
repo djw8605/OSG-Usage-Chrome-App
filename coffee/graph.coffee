@@ -33,7 +33,7 @@ graphControllerModule.controller 'GraphContoller',
                 #    @setParams(@$scope.graphData.queryParams)
                 
                 # Get the url @$scope.graphUrl 
-                @refreshGraph()
+                # @refreshGraph()
                     
                 # Set the scope variables for the View
                 @$scope.name = @graphData.name

@@ -9,7 +9,8 @@
   },
   "permissions": [
       "storage",
-      "http://gratiaweb.grid.iu.edu/gratia/"
+      "http://gratiaweb.grid.iu.edu/gratia/",
+      "https://osg-gratia-share.appspot.com/"
   ],
   
   "icons": { "16": "osglogo.16.png"}

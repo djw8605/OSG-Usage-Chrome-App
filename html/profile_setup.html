@@ -47,6 +47,13 @@
           <span class="help-block">A comma separated list of resources to include in the data.  A topology of resources is available on <a href="https://oim.grid.iu.edu/oim/topology">OIM</a>.</span>
           </div>
         </div>
+        <div ng-show="checkRequirements(template, 'customURL')">
+          <div class="form-group">
+          <label for="customURL">Sharing URL</label>
+          <input type="text" class="form-control" name="customURL" placeholder="URL" ng-model="template.customURL" /> 
+          <span class="help-block">A URL generated from sharing a profile.</span>
+          </div>
+        </div>
         </fieldset>
         </form>
         

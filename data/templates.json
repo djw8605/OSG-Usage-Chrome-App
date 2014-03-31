@@ -50,5 +50,12 @@
       "resources"
     ],
     "queryParams": {}
+  },
+  "CustomUrl": {
+      "name": "Shared Profile",
+      "description": "A shared profile URL",
+      "requirements": [
+          "customURL"
+      ]
   }
 }
