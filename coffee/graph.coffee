@@ -33,14 +33,12 @@ graphControllerModule.controller 'GraphContoller',
                     @setParams(@$scope.graphData.queryParams)
                 
                 # Get the url @$scope.graphUrl 
-                @graphService.getUrl(@graphData.baseUrl, @queryParams).then (graphUrl) =>
-                    @$scope.graphUrl = graphUrl
-                    @$log.info("Got URL #{@$scope.graphUrl}")
-                    @$scope.$watch('this.queryParams', @refreshGraph)
+                @refreshGraph()
                     
                 # Set the scope variables for the View
                 @$scope.name = @graphData.name
                 @$scope.description = @graphData.description
+                @$scope.$watch('this.queryParams', @refreshGraph)
             , (reason) =>
                 @$log.info("Refused to load URL because #{reason}")
             
