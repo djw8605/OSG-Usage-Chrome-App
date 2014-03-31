@@ -9,6 +9,7 @@
 
       <div class="row">
         <div class="graphImgDiv col-md-8">
+          <div id="spinner-{{graphId}}"></div>
     <img class="img-responsive" ng-src="{{graphUrl}}">
     </div>
     <div class="col-md-3 graphInfo">
@@ -31,7 +32,7 @@
         
         </div>
         <div class="col-md-4">
-        <li class="graphOptionLink">
+        <li ng-click="refreshGraph()" class="graphOptionLink">
           <i class="glyphicon glyphicon-refresh"> </i>
           <span class="graphOptionDesc">Refresh</span>
         </li>

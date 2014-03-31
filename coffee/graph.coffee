@@ -9,6 +9,8 @@ graphControllerModule.controller 'GraphContoller',
             
             @queryParams = {}
             @$scope.openGraphEdit = @openGraphEdit
+            @$scope.refreshGraph = @refreshGraph
+            
             
             @$log.info "Graph scope: #{@$scope.graphId}"
             
@@ -34,6 +36,7 @@ graphControllerModule.controller 'GraphContoller',
                 @graphService.getUrl(@graphData.baseUrl, @queryParams).then (graphUrl) =>
                     @$scope.graphUrl = graphUrl
                     @$log.info("Got URL #{@$scope.graphUrl}")
+                    @$scope.$watch('this.queryParams', @refreshGraph)
                     
                 # Set the scope variables for the View
                 @$scope.name = @graphData.name
@@ -45,6 +48,35 @@ graphControllerModule.controller 'GraphContoller',
             @$log.info "Got graph data: #{@profile}"
             @profile_defer.resolve(@profile)
             
+        refreshGraph: () =>
+            
+            opts = {
+              lines: 13, # The number of lines to draw
+              length: 20, # The length of each line
+              width: 10, # The line thickness
+              radius: 30, # The radius of the inner circle
+              corners: 1, # Corner roundness (0..1)
+              rotate: 0, # The rotation offset
+              direction: 1, # 1: clockwise, -1: counterclockwise
+              color: '#000', # #rgb or #rrggbb or array of colors
+              speed: 1, # Rounds per second
+              trail: 60, # Afterglow percentage
+              shadow: false, # Whether to render a shadow
+              hwaccel: false, # Whether to use hardware acceleration
+              className: 'spinner', # The CSS class to assign to the spinner
+              zIndex: 2e9, # The z-index (defaults to 2000000000)
+              top: 'auto', # Top position relative to parent in px
+              left: 'auto' # Left position relative to parent in px
+            };
+            
+            target = $("#spinner-#{@$scope.graphId}")
+            spinner = new Spinner(opts).spin(target);
+            
+            
+            @graphService.getUrl(@graphData.baseUrl, @queryParams).then (graphUrl) =>
+                @$scope.graphUrl = graphUrl
+                @$log.info("Got URL #{@$scope.graphUrl}")
+                spinner.stop()
             
         setParams: (values) ->
             @queryParams[key] = value for key, value of values
@@ -65,6 +97,7 @@ graphControllerModule.controller 'GraphContoller',
             modalInstance.result.then (params) =>
                 @$log.info("Graph edit closed...")
                 @$log.info(params)
-                @queryParams = params
+                @setParams(params)
+                @refreshGraph()
         
             
