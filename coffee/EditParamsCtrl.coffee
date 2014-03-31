@@ -6,7 +6,7 @@ editParamsControllerModule.controller 'EditParamsCtrl',
 
     class EditParamsCtrl
         constructor: (@$scope, @$log, @$modalInstance, @queryParams) ->
-            @$scope.params = @queryParams
+            @$scope.params = angular.copy(@queryParams)
             @$scope.submitRefineParams = @submitRefineParams
             
         submitRefineParams: () =>

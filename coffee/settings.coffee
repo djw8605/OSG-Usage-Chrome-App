@@ -4,7 +4,7 @@ settings = angular.module 'osgUsageApp.settings', []
 
 settings.service 'settingsService',
   class Settings
-    constructor: (@$q, @$log) -> 
+    constructor: (@$q, @$log, @$rootScope) -> 
         @settings_defer = @$q.defer()
         @notify_list = new Array()
         @getSettings()
@@ -15,17 +15,33 @@ settings.service 'settingsService',
                 chrome.storage.local.get 'settings', (items) =>
                     if ( ! items.settings? )
                         @settings = {}
+                        @$rootScope.settings = @settings
                         @settings_defer.resolve()
                         @$log.info("new settings")
                     else
                         @settings = angular.fromJson(items.settings)
+                        @$rootScope.settings = @settings
                         @settings_defer.resolve()
                         @$log.info("from local: Settings = #{items.settings}")
             else
                 @settings = angular.fromJson(items.settings)
+                @$rootScope.settings = @settings
                 @settings_defer.resolve()
                 @$log.info("from sync: Settings = #{items.settings}")
             
+                
+        @settings_defer.promise.then () =>
+            @$rootScope.$watch('settings', @settingsChange, true)
+        
+    
+    settingsChange: (newValue, oldValue) =>
+        @$log.info("Settings changed:")
+        @$log.info("Old:")
+        @$log.info(oldValue)
+        @$log.info("New Value:")
+        @$log.info(newValue)
+        @$log.info("Syncing settings...")
+        @syncSettings()
     
     addNotify: (toCallback)->
         # Function that users can call to capture changes in the configuration

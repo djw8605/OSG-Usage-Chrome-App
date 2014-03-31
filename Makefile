@@ -1,7 +1,10 @@
 
 ZIPNAME=osg-chrome-app.zip
+ZIP=zip -r $(ZIPNAME)
 # coffeefiles := coffee/settings.coffee coffee/graph.coffee coffee/graphContainerCtrl.coffee coffee/graphService.coffee 
 # compiledcofee := $(coffeefiles:%.coffee=%.js)
+
+all: package
 
 clean:
 	rm -f $(ZIPNAME)
@@ -9,15 +12,11 @@ clean:
 coffee/%.js: coffee/%.coffee
 	coffee -c $<
 
-all: coffee/*.js
+
+
 	
-	zip -r $(ZIPNAME) js/*
-	zip -r $(ZIPNAME) coffee/*.js
-	zip -r $(ZIPNAME) html/*
-	zip -r $(ZIPNAME) manifest.json
-	zip -r $(ZIPNAME) fonts/*
-	zip -r $(ZIPNAME) css/*
-	zip -r $(ZIPNAME) data/*
-	zip -r $(ZIPNAME) main.html
-	zip -r $(ZIPNAME) osglogo.16.png
+package: $(ZIPNAME)
+
+$(ZIPNAME): js/* coffee/*.js html/* manifest.json fonts/* css/* data/* main.html osglogo.16.png
+	$(ZIP) $^
 

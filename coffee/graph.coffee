@@ -7,7 +7,7 @@ graphControllerModule.controller 'GraphContoller',
     class GraphController
         constructor: (@$scope, @$http, @$log, @graphService, @$q, @$rootScope, @$modal) ->
             
-            @queryParams = {}
+            @queryParams = @$scope.graphData.queryParams
             @$scope.openGraphEdit = @openGraphEdit
             @$scope.refreshGraph = @refreshGraph
             
@@ -17,7 +17,7 @@ graphControllerModule.controller 'GraphContoller',
             # Define a promise to be fufilled when we have the profile information
             @profile_defer = @$q.defer()
             
-            # Grab the profile from the rootScope scope (probably a bad idea)
+            # Grab the profile from the rootScope scope (probably a bad idea).
             @profile = @$rootScope.profile
             @$scope.profile = @profile
             
@@ -29,8 +29,8 @@ graphControllerModule.controller 'GraphContoller',
                 @setParams(@profile.queryParams)
                 
                 # Add the graph's query params
-                if ( @$scope.graphData.queryParams? )
-                    @setParams(@$scope.graphData.queryParams)
+                #if ( @$scope.graphData.queryParams? )
+                #    @setParams(@$scope.graphData.queryParams)
                 
                 # Get the url @$scope.graphUrl 
                 @refreshGraph()
@@ -38,7 +38,7 @@ graphControllerModule.controller 'GraphContoller',
                 # Set the scope variables for the View
                 @$scope.name = @graphData.name
                 @$scope.description = @graphData.description
-                @$scope.$watch('this.queryParams', @refreshGraph)
+                @$scope.$watch('graphData', @refreshGraph, true)
             , (reason) =>
                 @$log.info("Refused to load URL because #{reason}")
             
@@ -46,7 +46,10 @@ graphControllerModule.controller 'GraphContoller',
             @$log.info "Got graph data: #{@profile}"
             @profile_defer.resolve(@profile)
             
-        refreshGraph: () =>
+        refreshGraph: (newValue, oldValue) =>
+            if (newValue?)
+                @$log.info(newValue)
+                @$log.info(oldValue)
             
             opts = {
               lines: 13, # The number of lines to draw
@@ -69,17 +72,16 @@ graphControllerModule.controller 'GraphContoller',
             
             target = $("#spinner-#{@$scope.graphId}").spin(opts)
             $(".#{@$scope.graphId} .graph-image").addClass("loading")
-            #spinner = new Spinner(opts).spin(target);
             
             
-            @graphService.getUrl(@graphData.baseUrl, @queryParams).then (graphUrl) =>
+            @graphService.getUrl(@graphData.baseUrl, @$scope.graphData.queryParams).then (graphUrl) =>
                 @$scope.graphUrl = graphUrl
                 @$log.info("Got URL #{@$scope.graphUrl}")
                 target.spin(false)
                 $(".#{@$scope.graphId} .graph-image").removeClass("loading")
             
         setParams: (values) ->
-            @queryParams[key] = value for key, value of values
+            @$scope.graphData.queryParams[key] = value for key, value of values
             
         
         onMouseOver: () ->
@@ -91,13 +93,14 @@ graphControllerModule.controller 'GraphContoller',
                 controller: 'EditParamsCtrl',
                 resolve: {
                     queryParams: () =>
-                        @queryParams
+                        @$scope.graphData.queryParams
                 }
             });
             modalInstance.result.then (params) =>
                 @$log.info("Graph edit closed...")
                 @$log.info(params)
                 @setParams(params)
-                @refreshGraph()
+                # Changes to queryParams will be caught by the watch statement
+                # @refreshGraph()
         
             
