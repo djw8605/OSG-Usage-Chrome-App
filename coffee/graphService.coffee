@@ -58,7 +58,7 @@ graphModule.service 'graphService',
             # to a | symbol delimited.
             newParams = {}
             for key, value of params
-                value = value.replace /\s*\,\s*/, '|'
+                value = value.replace /\s*\,\s*/g, '|'
                 newParams[key] = value
                 
             newParams
