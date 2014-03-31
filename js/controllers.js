@@ -153,6 +153,17 @@
         $scope.clearProfiles = function() {
             // Remove the profiles and the default profile
             settingsService.removeProfiles()
+            
+            // Delete the current profile
+            delete $rootScope.profile
+            
+            // Redirect to the default profile
+            $scope.redirectToProfile('_default')
+            
+            $scope.updateProfileMenu(null);
+            $rootScope.$broadcast('profileUpdate');
+            
+            $scope.checkForProfiles()
         }
         
         $scope.$on('profileUpdate', $scope.profileUpdate)
