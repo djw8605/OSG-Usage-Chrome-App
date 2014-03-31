@@ -74,8 +74,10 @@ graphModule.service 'graphService',
                 # Need a better way to uniqify the graph file name
                 filename = Math.floor((Math.random() * 1000000) + 1).toString() + '.png'
                 fs_url = @fs.root.toURL() + @graphFolder + '/' + filename
-                url_get = @$http.get(baseUrl, {params: @convertParams(queryParams), responseType: 'blob'}).success (data) =>
+                url_get = @$http.get(baseUrl, {params: @convertParams(queryParams), responseType: 'blob'}).success (data, status, headers, config) =>
                     @$log.info("Retrieved graph...")
+                    params = $.param(@convertParams(queryParams))
+                    @$log.info("#{baseUrl}?#{params}")
                     data.name = filename
                     # @writeFile(data)
                     
