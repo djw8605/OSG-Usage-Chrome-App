@@ -151,7 +151,10 @@ color: #FFFFFF;
     display: block;
 }
 
-
+.graph-item .loading {
+    background: #000;
+    opacity: 0.5;
+}
 
 
 /* For the graph slideout
@@ -249,6 +252,8 @@ border-radius: 0 8px 8px 0;
 .graphOptionLink {
     cursor: pointer;
 }
+
+
 
 /*
 .imagepluscontainer:hover div.rightslide{

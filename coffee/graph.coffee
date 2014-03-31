@@ -65,18 +65,20 @@ graphControllerModule.controller 'GraphContoller',
               hwaccel: false, # Whether to use hardware acceleration
               className: 'spinner', # The CSS class to assign to the spinner
               zIndex: 2e9, # The z-index (defaults to 2000000000)
-              top: 'auto', # Top position relative to parent in px
-              left: 'auto' # Left position relative to parent in px
+              top: '50%', # Top position relative to parent in px
+              left: '50%' # Left position relative to parent in px
             };
             
-            target = $("#spinner-#{@$scope.graphId}")
-            spinner = new Spinner(opts).spin(target);
+            target = $("#spinner-#{@$scope.graphId}").spin(opts)
+            $(".#{@$scope.graphId} .graph-image").addClass("loading")
+            #spinner = new Spinner(opts).spin(target);
             
             
             @graphService.getUrl(@graphData.baseUrl, @queryParams).then (graphUrl) =>
                 @$scope.graphUrl = graphUrl
                 @$log.info("Got URL #{@$scope.graphUrl}")
-                spinner.stop()
+                target.spin(false)
+                $(".#{@$scope.graphId} .graph-image").removeClass("loading")
             
         setParams: (values) ->
             @queryParams[key] = value for key, value of values
