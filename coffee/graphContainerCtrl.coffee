@@ -11,7 +11,7 @@ graphContainerControllerModule.controller 'GraphContainerCtrl',
                 if (! profile? )
                     @$log.warn("Got null for profile, probably at wrong URL.")
                 else
-                    if ( @$rootScope.profile.id != profile.id )
+                    if ( not @$rootScope.profile? or @$rootScope.profile.id != profile.id )
                         @$rootScope.profile = profile
                         @$rootScope.$broadcast('profileUpdate');
                         @$log.info("Profile was updated by URL, broadcasting...")

@@ -14,20 +14,23 @@ settings.service 'settingsService',
             if ( ! items.settings? )
                 chrome.storage.local.get 'settings', (items) =>
                     if ( ! items.settings? )
-                        @settings = {}
-                        @$rootScope.settings = @settings
-                        @settings_defer.resolve()
-                        @$log.info("new settings")
+                        @$rootScope.$apply () =>
+                            @settings = {}
+                            @$rootScope.settings = @settings
+                            @settings_defer.resolve()
+                            @$log.info("new settings")
                     else
-                        @settings = angular.fromJson(items.settings)
-                        @$rootScope.settings = @settings
-                        @settings_defer.resolve()
-                        @$log.info("from local: Settings = #{items.settings}")
+                        @$rootScope.$apply () =>
+                            @settings = angular.fromJson(items.settings)
+                            @$rootScope.settings = @settings
+                            @settings_defer.resolve()
+                            @$log.info("from local: Settings = #{items.settings}")
             else
-                @settings = angular.fromJson(items.settings)
-                @$rootScope.settings = @settings
-                @settings_defer.resolve()
-                @$log.info("from sync: Settings = #{items.settings}")
+                @$rootScope.$apply () =>
+                    @settings = angular.fromJson(items.settings)
+                    @$rootScope.settings = @settings
+                    @settings_defer.resolve()
+                    @$log.info("from sync: Settings = #{items.settings}")
             
                 
         @settings_defer.promise.then () =>
