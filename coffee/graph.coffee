@@ -10,6 +10,7 @@ graphControllerModule.controller 'GraphContoller',
             @queryParams = @$scope.graphData.queryParams
             @$scope.openGraphEdit = @openGraphEdit
             @$scope.refreshGraph = @refreshGraph
+            @$scope.deleteGraph = @deleteGraph
             
             
             @$log.info "Graph scope: #{@$scope.graphId}"
@@ -103,4 +104,9 @@ graphControllerModule.controller 'GraphContoller',
                 # Changes to queryParams will be caught by the watch statement
                 # @refreshGraph()
         
+        
+        deleteGraph: () =>
+            # Remove our graph
+            delete @profile.graphs[@$scope.graphId]
+            
             
