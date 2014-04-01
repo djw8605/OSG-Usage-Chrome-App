@@ -46,4 +46,16 @@ Nebraska has many resources, but the graphs are only showing the usage from one 
 .. image:: images/graphDropDown.png
    :align: center
 
+In this dialog, we can add more graphs clusters into the resources box.
+
+.. image:: images/enteringAdditionalResources.png
+   :align: center
+
+Once you have finished, click *Refine*, or hit *Enter*.  All of the graphs in the current profile will be refreshed with the new parameters.
+
+
+Sharing your Profile
+--------------------
+
+
 
