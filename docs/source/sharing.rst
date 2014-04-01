@@ -38,5 +38,16 @@ Profiles save everything, including:
 Receiving a Shared Profile
 --------------------------
 
+In order to receive a shared profile, you need to be in the :ref:`addingprofiles` dialog.  Once there, select the *Shared Profile* option, and paste the shared profile link you received into the text box.
 
+.. image:: images/receivingShared.png
+   :width: 567
+   :height: 334
+   :scale: 70 %
+   :align: center
+
+Click the *Add* button to add the shared profile.  It may take a second to load the shared profile.
+
+.. note::
+   You will not receive updates if the original sharer updates the profile.  Further, any updates you make to the profile are local, and will not be propagated to other users.
 

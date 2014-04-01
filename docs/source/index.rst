@@ -19,6 +19,7 @@ Contents:
    :maxdepth: 2
    
    tutorial
+   profiles
    graphs
    sharing
    developer
