@@ -10,7 +10,10 @@ addGraphController.controller 'AddGraphCtrl',
             @$scope.cancel = @cancel
             
         addGraph: () =>
-            
+            graphUrlRegex = /^([\w\:\/\.]*)/
+            @$scope.graph.baseUrl = graphUrlRegex.exec(@$scope.graph.baseUrl)[0]
+            @$log.info("Got new baseUrl")
+            @$log.info(@$scope.graph.baseUrl)
             @$modalInstance.close(@$scope.graph)
 
             
