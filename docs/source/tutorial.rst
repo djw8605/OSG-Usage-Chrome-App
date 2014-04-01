@@ -15,6 +15,7 @@ To install the Chrome app, download it from the `Chrome App Store <https://chrom
 1. When opening a new tab, click the **Apps** button at the top.  This will bring you to the Chrome application list, where you can find the newly installed OSG Usage Viewer application.
 
 .. image:: images/chromeTopBar.png
+   :align: center
 
 2. Using the `Chrome App Launcher <https://chrome.google.com/webstore/launcher>`_, which is installed with Chrome on Mac and Windows.
 
@@ -40,6 +41,9 @@ Refining the Graphs
 
 Each graph can be edited by either changing the *Profile's* parameters, or each graph's individual parameters.  We will continue with the previous example of being an adminstrator at Nebraska.
 
-Nebraska has many resources, but the graphs are only showing the usage 
+Nebraska has many resources, but the graphs are only showing the usage from one of our clusters.  We wish to add our other clusters to all of the graphs.  We can change all of the graphs simultanously by selecting the *Edit Graph Properties* button from the top navigation, under *Graph*.
+
+.. image:: images/graphDropDown.png
+   :align: center
 
 
