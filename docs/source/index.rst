@@ -3,8 +3,15 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-OSG Gratia Chrome App
+OSG Usage Chrome App
 =====================
+
+The OSG Usage App provides an interface into the OSG's accounting system.  It also allows for:
+
+* Sharing of graphs and refinements with other users.
+* Refining data presented.
+
+A great way to start using the OSG Usage App is to follow the :ref:`tutorial-label`.
 
 Contents:
 
