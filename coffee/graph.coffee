@@ -23,21 +23,31 @@ graphControllerModule.controller 'GraphContoller',
             @$scope.profile = @profile
             
             # wait for both the graph information and the profile information
-            # The profile contains system wide query parameters
-            @graphService.getGraph(@$scope.graphId).then (@graphData) =>
+            # The profile contains system wide query parameter
+            @setParams(@profile.queryParams)
+            
+            if (@$scope.graphData.baseUrl?)
+                @graphData = @$scope.graphData
                 
-                # Add the profile's query parameters
-                @setParams(@profile.queryParams)
-                    
                 # Set the scope variables for the View
                 @$scope.name = @graphData.name
                 @$scope.description = @graphData.description
                 
-                # Watch the 2 places that can change the values of the graphs
                 @$scope.$watch('graphData', @refreshGraph, true)
                 @$rootScope.$watch('profile.queryParams', @updateFromProfile, true)
-            , (reason) =>
-                @$log.info("Refused to load URL because #{reason}")
+            else
+                # built in graphs
+                @graphService.getGraph(@$scope.graphId).then (@graphData) =>
+                    
+                    # Set the scope variables for the View
+                    @$scope.name = @graphData.name
+                    @$scope.description = @graphData.description
+                
+                    # Watch the 2 places that can change the values of the graphs
+                    @$scope.$watch('graphData', @refreshGraph, true)
+                    @$rootScope.$watch('profile.queryParams', @updateFromProfile, true)
+                , (reason) =>
+                    @$log.info("Refused to load URL because #{reason}")
             
         
         updateFromProfile: (newValue, oldValue) =>

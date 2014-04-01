@@ -58,7 +58,8 @@
     };
     
     angular.module('osgUsageApp.controllers', [ 'ui.bootstrap', 'osgUsageApp.settings', 
-                                                'osgUsageApp.controller.containergraph', 'ngResource', 'osgUsageApp.controller.sharedialog'])
+                                                'osgUsageApp.controller.containergraph', 'ngResource', 'osgUsageApp.controller.sharedialog',
+                                                'osgUsageApp.controller.addgraph'])
     
     
     .controller('OSGUsageViewCtrl', function($scope, $modal, $log, settingsService, $location, $rootScope, $resource) {
@@ -151,6 +152,26 @@
         
         $scope.addGraph = function() {
             // Code to add a custom or builtin graph
+            modalInstance = $modal.open({
+                templateUrl: 'html/add_graph.html',
+                controller: 'AddGraphCtrl'
+            });
+            
+            modalInstance.result.then(function(graph) {
+                $log.info("Graph add closed...");
+                // Create the 'id' for the graph
+                graphId = Math.floor((Math.random()*100000)+1).toString();
+                while ($rootScope.profile.graphs.hasOwnProperty(graphId)) {
+                    graphId = (parseInt(graphId)+1).toString();
+                }
+
+            
+                // Add the graph
+                graph.graphId = graphId
+                $rootScope.profile.graphs[graphId] = graph
+                
+            });
+            
             
         }
         
