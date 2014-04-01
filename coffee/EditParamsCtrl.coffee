@@ -2,7 +2,7 @@
 editParamsControllerModule = angular.module 'osgUsageApp.controller.editparams', ['osgUsageApp.graphService', 'ui.bootstrap']
 
 
-dateregex = /^20\d{2}\-\d{2}\-\d{2}\s\d{2}\:\d{2}\:\d{2}$/
+dateregex = /^$|^20\d{2}\-\d{2}\-\d{2}\s\d{2}\:\d{2}\:\d{2}$/
 
 editParamsControllerModule.directive 'inputdate', ->
     return {
