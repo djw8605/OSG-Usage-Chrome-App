@@ -54,14 +54,15 @@ In this dialog, we can add more clusters into the resources box.  We add Crane a
 Once you have finished, click *Refine*, or hit *Enter*.  All of the graphs in the current profile will be refreshed with the new parameters.
 
 
-Sharing your Profile
---------------------
+Further Reading
+---------------
 
-The OSG Usage App has the ability to generate a link that can be used by others to load the profile.  A simple web service stores the profiles when you click on the sharing link, and can be retrieved by others when creating a new profile.
+You may use more advanced features of the App such as:
 
-.. note::
-   The remote user will not receive updates if you change a previously shared profile.
+* :ref:`sharingprofiles`
+* :ref:`addinggraphs`
 
-A full description of sharing profiles is provided in :ref:`sharingprofiles`.
+
+
 
 
