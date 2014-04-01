@@ -22,7 +22,8 @@ addGraphController.controller 'AddGraphCtrl',
             
             graph_get = @$http.get(@$scope.graph.baseUrl)
             @$scope.checkingURL = true
-            target = $(".statusChecking").spin()
+            
+            target = $(".statusChecking .spinnerInject").spin()
             
             graph_get.success (data, status, headers, config) =>
                 
@@ -52,7 +53,7 @@ addGraphController.controller 'AddGraphCtrl',
                 
             graph_get.error (data, status, headers, config) =>
                 @$log.info("Failed to get website from #{@$scope.graph.baseUrl}")
-                @$scope.errorDisplay = "Unable to get website"
+                @$scope.errorDisplay = "Unable to contact website: #{status}"
                 
                 
             

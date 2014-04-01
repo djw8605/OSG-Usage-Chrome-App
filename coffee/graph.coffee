@@ -5,7 +5,7 @@ graphControllerModule = angular.module 'osgUsageApp.controller.graph', ['osgUsag
 graphControllerModule.controller 'GraphContoller',
 
     class GraphController
-        constructor: (@$scope, @$http, @$log, @graphService, @$q, @$rootScope, @$modal) ->
+        constructor: (@$scope, @$http, @$log, @graphService, @$q, @$rootScope, @$modal, @$timeout) ->
             
             @queryParams = @$scope.graphData.queryParams
             @$scope.openGraphEdit = @openGraphEdit
@@ -33,8 +33,9 @@ graphControllerModule.controller 'GraphContoller',
                 @$scope.name = @graphData.name
                 @$scope.description = @graphData.description
                 
-                @$scope.$watch('graphData', @refreshGraph, true)
-                @$rootScope.$watch('profile.queryParams', @updateFromProfile, true)
+                @$timeout =>
+                    @$scope.$watch('graphData', @refreshGraph, true)
+                    @$rootScope.$watch('profile.queryParams', @updateFromProfile, true)
             else
                 # built in graphs
                 @graphService.getGraph(@$scope.graphId).then (@graphData) =>

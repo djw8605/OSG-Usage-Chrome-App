@@ -30,10 +30,13 @@ shareDialogController.controller 'ShareDiaglogCtrl',
             
             strProfile = JSON.stringify(newProfile)
             
+            @$scope.loading = true
+            
             @$resource("https://osg-gratia-share.appspot.com/api/profile").save strProfile, (value, headers) => 
                 @$scope.shareURL = value.url
                 @$log.info("Success sharing profile")
                 @$log.info(value)
+                @$scope.loading = false
                 
                 
             
