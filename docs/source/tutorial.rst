@@ -27,6 +27,10 @@ When you first start the App, it will show a dialog to pick a profile.  This dia
 After selecting a profile, enter a small amount of information required to restrict what the graphs will show.  Below is an example for a Nebraska resource owner (administrator):
 
 .. image:: images/nebraskaProfile.png
+   :align: center
+   :height: 654
+   :width: 606
+   :scale: 70 %
 
 After you have entered the information, click the *Add* button.  The graphs will load and you will be displayed with the main screen.
 
@@ -34,6 +38,8 @@ After you have entered the information, click the *Add* button.  The graphs will
 Refining the Graphs
 -------------------
 
-Each graph can be edited by either changing the *Profile's* parameters, or each graph's individual parameters.  We will continue
+Each graph can be edited by either changing the *Profile's* parameters, or each graph's individual parameters.  We will continue with the previous example of being an adminstrator at Nebraska.
+
+Nebraska has many resources, but the graphs are only showing the usage 
 
 
