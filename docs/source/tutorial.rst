@@ -20,4 +20,6 @@ To install the Chrome app, download it from the `Chrome App Store <https://chrom
 Initial Setup
 -------------
 
-When you first start the App, it will show a dialog to pick a profile.  
+When you first start the App, it will show a dialog to pick a profile.  This dialog shows a list of predefined profiles for you.  Choose the one most appropriate for you.  For example, if you are an OSG user, you would choose the *OSG User* profile.  Or, if you are a *Resource Owner*, choose that profile.  
+
+After selecting a profile, enter a small amount of information required to restrict what the graphs will show.
