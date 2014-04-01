@@ -62,6 +62,6 @@ The OSG Usage App has the ability to generate a link that can be used by others 
 .. note::
    The remote user will not receive updates if you change a previously shared profile.
 
-
+A full description of sharing profiles is provided in :ref:`sharingprofiles`.
 
 
