@@ -14,7 +14,10 @@ The OSG Usage App has the ability to generate a link that can be used by others 
 
 After you have created a profile that you would like to share, click on the *Share* button in the top navigation bar.  It will open a dialog to fill in attributes that you would like to assign to the profile, such as *Name* and *Description*.  
 
-.. image:: images/sharingDialog.png
+.. image:: images/shareDialog.png
+   :width: 606
+   :height: 466
+   :scale: 70 %
    :align: center
 
 Once you have entered these values, click on the share button.  It will generate a URL that you can copy into an email, or IM, and can be used by another user to load the profile.
