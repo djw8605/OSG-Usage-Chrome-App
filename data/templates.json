@@ -9,6 +9,9 @@
       },
       "dailyPerProject": {
           "queryParams": {}
+      },
+      "glideinDailyHoursPerFacility": {
+          "queryParams": {}
       }
     },
     "requirements": [
