@@ -28,24 +28,21 @@ graphControllerModule.controller 'GraphContoller',
                 
                 # Add the profile's query parameters
                 @setParams(@profile.queryParams)
-                
-                # Add the graph's query params
-                #if ( @$scope.graphData.queryParams? )
-                #    @setParams(@$scope.graphData.queryParams)
-                
-                # Get the url @$scope.graphUrl 
-                # @refreshGraph()
                     
                 # Set the scope variables for the View
                 @$scope.name = @graphData.name
                 @$scope.description = @graphData.description
+                
+                # Watch the 2 places that can change the values of the graphs
                 @$scope.$watch('graphData', @refreshGraph, true)
+                @$rootScope.$watch('profile.queryParams', @updateFromProfile, true)
             , (reason) =>
                 @$log.info("Refused to load URL because #{reason}")
             
-        init: (@profile) ->
-            @$log.info "Got graph data: #{@profile}"
-            @profile_defer.resolve(@profile)
+        
+        updateFromProfile: (newValue, oldValue) =>
+            @setParams(newValue)
+            
             
         refreshGraph: (newValue, oldValue) =>
             if (newValue?)

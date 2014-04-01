@@ -148,7 +148,33 @@
             });
     
         };
-
+        
+        $scope.addGraph = function() {
+            // Code to add a custom or builtin graph
+            
+        }
+        
+        $scope.editGraphs = function() {
+            // Code to edit all graphs
+            
+            // Bring up the edit params page
+            modalInstance = $modal.open({
+                templateUrl: 'html/edit_params.html',
+                controller: 'EditParamsCtrl',
+                resolve: {
+                    queryParams: function () {
+                        return $scope.profile.queryParams
+                    }
+                }
+            });
+            
+            modalInstance.result.then(function(params) {
+                $log.info("Profile graph edit closed...");
+                $scope.profile.queryParams = params;
+            });
+            
+        }
+        
 
         $scope.clearProfiles = function() {
             // Remove the profiles and the default profile

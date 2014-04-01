@@ -48,13 +48,7 @@ editParamsControllerModule.controller 'EditParamsCtrl',
             return s;
             
             
-        submitRefineParams: () =>
-            # If the starttime / endtime exist, but are blank, delete them
-            if ( @$scope.params['starttime']? and @$scope.params['starttime'] == "")
-                delete @$scope.params['starttime']
-            if ( @$scope.params['endtime']? and @$scope.params['endtime'] == "")
-                delete @$scope.params['endtime']
-            
+        submitRefineParams: () =>            
             
             @$modalInstance.close(@$scope.params)
             
