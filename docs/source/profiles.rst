@@ -2,7 +2,9 @@
 Profiles
 ========
 
-A profile is a collection of graphs grouped together.  A profile may define refining parameters which are applied to each of the graphs in the profile.
+A profile is a collection of graphs grouped together.  A profile may define refining parameters which are applied to each of the graphs in the profile.  
+
+It is often useful to have mutiple profiles that can show you different information.  One profile could show usage over the last 2 weeks for the Nebraska resources.  While another profile could show the usage over the last year of the HCC VO.
 
 .. _addingprofiles:
 
