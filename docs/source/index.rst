@@ -6,14 +6,18 @@
 OSG Usage Chrome App
 =====================
 
-The OSG Usage App provides an interface into the OSG's accounting system.  It also allows for:
+The OSG Usage App provides an interface into the OSG's accounting system.  It also features:
 
-* Sharing of graphs and refinements with other users.
-* Refining data presented.
+* Sharing of collections of graphs with other users.
+* Refining of graphed data.
+
 
 A great way to start using the OSG Usage App is to follow the :ref:`tutorial-label`.
 
-Contents:
+The code is hosted on `Github <https://github.com/djw8605/OSG-Usage-Chrome-App>`_.  As well as the `issue tracker <https://github.com/djw8605/OSG-Usage-Chrome-App/issues>`_.
+
+
+Table of Contents:
 
 .. toctree::
    :maxdepth: 2
