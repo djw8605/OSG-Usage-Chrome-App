@@ -27,7 +27,7 @@ After opening the dialog, enter the graph name and description.  Both of these a
    
    Add graph dialog showing values filled in.
 
-The **Base Graph URL** refers to the URL of the graph from `gratiaweb <http://gratiaweb.grid.iu.edu/gratia/>`_.  A list of availble graphs are availble in the gratiaweb `*backpage* <http://gratiaweb.grid.iu.edu/gratia/xml/>`_.  Select any of these graphs, then copy / paste the URL from the website into the **Base Graph URL**.
+The **Base Graph URL** refers to the URL of the graph from `gratiaweb <http://gratiaweb.grid.iu.edu/gratia/>`_.  A list of availble graphs are availble in the gratiaweb `backpage <http://gratiaweb.grid.iu.edu/gratia/xml/>`_.  Select any of these graphs, then copy / paste the URL from the website into the **Base Graph URL**.
 
 .. figure:: images/urlCopy.png
    :align: center
