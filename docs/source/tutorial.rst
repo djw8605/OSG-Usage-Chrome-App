@@ -16,7 +16,7 @@ To install the Chrome app, download it from the `Chrome App Store <https://chrom
 
 .. figure:: images/chromeTopBar.png
    :align: center
-   
+
    Chrome App Launcher in the top bar of a new tab page.
 
 2. Using the `Chrome App Launcher <https://chrome.google.com/webstore/launcher>`_, which is installed with Chrome on Mac and Windows.
@@ -27,7 +27,7 @@ To install the Chrome app, download it from the `Chrome App Store <https://chrom
 Initial Setup
 -------------
 
-When you first start the App, it will show a dialog to pick a profile.  This dialog shows a list of predefined profiles for you.  Choose the one most appropriate for you.  For example, if you are an OSG user, you would choose the *OSG User* profile.  Or, if you are a *Resource Owner*, choose that profile.  
+When you first start the App, it will show a dialog to pick a profile.  This dialog shows a list of predefined profiles for you.  Choose the one most appropriate for you.  For example, if you are an OSG user, you would choose the *OSG User* profile.  Or, if you are a *Resource Owner*, choose that profile.
 
 After selecting a profile, enter a small amount of information required to restrict what the graphs will show.  Below is an example for a Nebraska resource owner (administrator):
 
@@ -36,7 +36,7 @@ After selecting a profile, enter a small amount of information required to restr
    :height: 654
    :width: 606
    :scale: 70 %
-   
+
    Profile showing Nebraska resources being entered.
 
 After you have entered the information, click the *Add* button.  The graphs will load and you will be displayed with the main screen.
@@ -51,14 +51,14 @@ Nebraska has many resources, but the graphs are only showing the usage from one 
 
 .. figure:: images/graphDropDown.png
    :align: center
-   
+
    Graph dropdown for manipulating the profile's graphs.
 
 In this dialog, we can add more clusters into the resources box.  We add Crane and Tusker clusters.
 
 .. figure:: images/enteringAdditionalResources.png
    :align: center
-   
+
    Graph edit dialog
 
 Once you have finished, click *Refine*, or hit *Enter*.  All of the graphs in the current profile will be refreshed with the new parameters.
@@ -71,8 +71,4 @@ You may use more advanced features of the App such as:
 
 * :ref:`sharingprofiles`
 * :ref:`addinggraphs`
-
-
-
-
-
+* :ref:`addingprofiles`
