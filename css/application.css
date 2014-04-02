@@ -166,6 +166,7 @@ color: #FFFFFF;
     background: #000;
     opacity: 0.5;
     z-index: 1;
+    min-height: 400px;
 }
 
 
