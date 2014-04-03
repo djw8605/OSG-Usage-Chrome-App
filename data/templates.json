@@ -25,10 +25,10 @@
     "id": "VOManager",
     "description": "The VO Manager template shows the usage of resources for a particular VO.",
     "graphs": {
-      "VOUserGraph": {
+      "dailyHoursPerVO": {
           "queryParams": {}
       },
-      "StuffGraph": {
+      "dailyPerFacility": {
           "queryParams": {}
       }
     },
