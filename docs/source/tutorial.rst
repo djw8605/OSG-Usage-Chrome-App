@@ -27,7 +27,7 @@ To install the Chrome app, download it from the `Chrome App Store <https://chrom
 Initial Setup
 -------------
 
-When you first start the App, it will show a dialog to pick a profile.  This dialog shows a list of predefined profiles for you.  Choose the one most appropriate for you.  For example, if you are an OSG user, you would choose the *OSG User* profile.  Or, if you are a *Resource Owner*, choose that profile.  Further descriptions of the initial profiles are availble at :ref:`templateprofiles`
+When you first start the App, it will show a dialog to pick a profile.  This dialog shows a list of predefined profiles for you.  Choose the one most appropriate for you.  For example, if you are an OSG user, you would choose the *OSG User* profile.  Or, if you are a *Resource Owner*, choose that profile.  Further descriptions of the initial profiles are availble on the :ref:`profiles page <templateprofiles>`.
 
 After selecting a profile, enter a small amount of information required to restrict what the graphs will show.  Below is an example for a Nebraska resource owner (administrator):
 
