@@ -6,7 +6,7 @@
 OSG Usage Chrome App
 =====================
 
-The OSG Usage App provides an interface into the OSG's accounting system.  It also features:
+The OSG Usage App provides an interface into the `OSG <http://www.opensciencegrid.org/>`_'s accounting system.  It also features:
 
 * Sharing of collections of graphs with other users.
 * Refining of graphed data.
