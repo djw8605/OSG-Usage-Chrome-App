@@ -250,6 +250,33 @@ color: #FFFFFF;
   }
 }
 
+/* For the graphs */
+
+ 
+.graph-item.ng-move,
+.graph-item.ng-enter,
+.graph-item.ng-leave {
+  -webkit-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+}
+ 
+.graph-item.ng-leave.ng-leave-active,
+.graph-item.ng-move,
+.graph-item.ng-enter {
+  opacity:0;
+  max-height:0;
+}
+ 
+.graph-item.ng-leave,
+.graph-item.ng-move.ng-move-active,
+.graph-item.ng-enter.ng-enter-active {
+  opacity:1;
+  max-height: 500;
+}
+
+
+
+
 /* For the graph slideout
 From: http://www.dynamicdrive.com/style/csslibrary/item/image_with_sliding_description_panel_using_css3_transitions/
 
