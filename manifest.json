@@ -1,7 +1,7 @@
 {
   "name": "OSG Usage Viewer",
   "description": "OSG Usage View",
-  "version": "0.3.6",
+  "version": "0.4.1",
   "app": {
     "background": {
       "scripts": ["js/background.js"]
@@ -9,6 +9,7 @@
   },
   "permissions": [
       "storage",
+      "clipboardWrite",
       "http://gratiaweb.grid.iu.edu/gratia/",
       "https://osg-gratia-share.appspot.com/"
   ],

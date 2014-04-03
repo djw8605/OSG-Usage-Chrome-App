@@ -37,3 +37,13 @@ The **Base Graph URL** refers to the URL of the graph from `gratiaweb <http://gr
 The App will parse the URL and determine if the graph can be retrieved.  If it is successful, it will add the graph to the profile.
 
 
+.. _linkgraphs:
+
+Get Links to Graphs
+-------------------
+
+The links are intended to be used to directly view the Gratiaweb backend pages for the graph.  The backend pages include many more parameters that can be configured than are built into the Chrome App.
+
+.. warning::
+   Not all graphs will work with the share link.  The backend page names do not always match with the image name, therefore the linked backend page is not always yours.
+

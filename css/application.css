@@ -169,6 +169,86 @@ color: #FFFFFF;
     min-height: 400px;
 }
 
+#flash-messages {
+  position: fixed;
+  background-color: rgba(255, 191, 0, 0.75);
+  padding: 5px 15px;
+  display: inline-block;
+  text-align: center;
+  width: 200px;
+  top: 10px;
+  left: 50%;
+  margin-left: -100px;
+  border-radius: 5px;
+  list-style: none;
+  z-index: 1001;
+  min-height: 30px;
+}
+
+.slide-down { /* display: none !important; */ }
+
+.slide-down.ng-hide-add {
+    display:block!important;
+    -webkit-animation: slide-down-leave 500ms ease;
+    animation: slide-down-leave 500ms ease; 
+}
+
+
+.slide-down.ng-hide-remove {
+  display:block!important;
+  -webkit-animation: slide-down-enter 250ms ease-out;
+  animation: slide-down-enter 250ms ease-out;
+}
+
+@keyframes slide-down-enter {
+  from { 
+      opacity: 0; 
+      -webkit-transform: translateY(-75%);
+      transform: translateY(-75%);
+   } 
+  to { 
+      opacity: 1; 
+      -webkit-transform: translateY(0);
+      transform: translateY(0); }
+}
+
+@-webkit-keyframes slide-down-enter {
+  from { 
+      opacity: 0; 
+      -webkit-transform: translateY(-75%);
+      transform: translateY(-75%);
+   } 
+  to { 
+      opacity: 1; 
+      -webkit-transform: translateY(0);
+      transform: translateY(0); }
+}
+
+@keyframes slide-down-leave {
+  from { 
+      opacity: 1; 
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+  } 
+  to { 
+      opacity: 0; 
+      -webkit-transform: translateY(75%);
+      transform: translateY(75%); 
+  }
+}
+
+@-webkit-keyframes slide-down-leave {
+  from { 
+      opacity: 1; 
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+  } 
+  to { 
+      opacity: 0; 
+      -webkit-transform: translateY(75%);
+      transform: translateY(75%); 
+  }
+}
 
 /* For the graph slideout
 From: http://www.dynamicdrive.com/style/csslibrary/item/image_with_sliding_description_panel_using_css3_transitions/

@@ -1,16 +1,17 @@
 
 
-graphControllerModule = angular.module 'osgUsageApp.controller.graph', ['osgUsageApp.graphService', 'osgUsageApp.controller.editparams', 'ui.bootstrap']
+graphControllerModule = angular.module 'osgUsageApp.controller.graph', ['osgUsageApp.graphService', 'osgUsageApp.controller.editparams', 'ui.bootstrap', 'ngAnimate', 'flash']
 
 graphControllerModule.controller 'GraphContoller',
 
     class GraphController
-        constructor: (@$scope, @$http, @$log, @graphService, @$q, @$rootScope, @$modal, @$timeout) ->
+        constructor: (@$scope, @$http, @$log, @graphService, @$q, @$rootScope, @$modal, @$timeout, @flash) ->
             
             @queryParams = @$scope.graphData.queryParams
             @$scope.openGraphEdit = @openGraphEdit
             @$scope.refreshGraph = @refreshGraph
             @$scope.deleteGraph = @deleteGraph
+            @$scope.copyGraphLink = @copyGraphLink
             
             
             @$log.info "Graph scope: #{@$scope.graphId}"
@@ -39,6 +40,10 @@ graphControllerModule.controller 'GraphContoller',
             else
                 # built in graphs
                 @graphService.getGraph(@$scope.graphId).then (@graphData) =>
+                    
+                    @$scope.graphData.baseUrl = @graphData.baseUrl
+                    @$scope.graphData.name = @graphData.name
+                    @$scope.graphData.description = @graphData.description
                     
                     # Set the scope variables for the View
                     @$scope.name = @graphData.name
@@ -116,5 +121,25 @@ graphControllerModule.controller 'GraphContoller',
         deleteGraph: () =>
             # Remove our graph
             delete @profile.graphs[@$scope.graphId]
+            
+            
+        copyGraphLink: () =>
+            # Get the baseURL for the graph
+            # First, translate the baseUrl to the xml included URL.
+            url = @graphService.getExernalUrl(@graphData.baseUrl, @$scope.graphData.queryParams)
+            
+            # create the element to 'select' to copy the text from
+            copyFrom = $("<textarea />")
+            copyFrom.text(url)
+            $('body').append(copyFrom)
+            copyFrom.select()
+            document.execCommand('copy', true)
+            copyFrom.remove();
+            @flash('Copied to clipboard')
+            return
+            
+                
+            
+            
             
             

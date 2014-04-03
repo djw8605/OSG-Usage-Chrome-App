@@ -4,7 +4,9 @@
 <script src="js/jquery-1.11.0.min.js"></script>
 <script src="js/angular.js"></script>
 <script src="js/angular-route.js"></script>
+<script src="js/angular-animate.min.js"></script>
 <script src="js/angular-resource.min.js"></script>
+<script src="js/angular-flash.js"></script>
 <script src="js/spin.min.js"></script>
 <script src="js/jquery.spin.js"></script>
 
@@ -79,6 +81,7 @@
 <div class="container graphContent">
 <div class="row">
 <div class="col-md-12">
+  <flash:messages class="slide-down" ng-show="messages"></flash:messages>
 
   <div ng-show="profiles" ng-view> </div>
 </div>

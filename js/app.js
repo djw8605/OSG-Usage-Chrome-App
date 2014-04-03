@@ -1,5 +1,5 @@
  
-app = angular.module('osgUsageApp', ['ui.bootstrap','osgUsageApp.controllers', 'osgUsageApp.settings', 'ngRoute', 'osgUsageApp.controller.graph' ])
+app = angular.module('osgUsageApp', ['ui.bootstrap','osgUsageApp.controllers', 'osgUsageApp.settings', 'ngRoute', 'osgUsageApp.controller.graph', 'ngAnimate', 'flash' ])
 .config( [
     '$compileProvider',
     function( $compileProvider )

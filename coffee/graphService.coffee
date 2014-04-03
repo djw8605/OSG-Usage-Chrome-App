@@ -91,3 +91,23 @@ graphModule.service 'graphService',
             deferred_graphUrl.promise
             
             
+        getExernalUrl: (baseUrl, queryParams) ->
+            extractRegex = /(.*gratia)\/.*\/(.*)/
+            
+            # Extract the components from the URL
+            # Example URL:
+            # http://gratiaweb.grid.iu.edu/gratia/bar_graphs/vo_hours_bar_smry
+            # needs to be:
+            # http://gratiaweb.grid.iu.edu/gratia/xml/vo_hours_bar_smry
+            extractedUrl = baseUrl.match(extractRegex)
+            if (extractedUrl?)
+                reconstructedUrl = extractedUrl[1] + "/xml/" + extractedUrl[2]
+                # Now add the query params
+                convertedParams = @convertParams(queryParams)
+                joinedParams = for key, value of convertedParams
+                    "#{key}=#{value}"
+                
+                totalParams = joinedParams.join('&')
+                return "#{reconstructedUrl}?#{totalParams}"
+                
+        
