@@ -45,5 +45,5 @@ Get Links to Graphs
 The links are intended to be used to directly view the Gratiaweb backend pages for the graph.  The backend pages include many more parameters that can be configured than are built into the Chrome App.
 
 .. warning::
-   Not all graphs will work with the share link.  The backend page names do not always match with the image name, therefore the linked backend page is not always yours.
+   Not all graphs will work with the share link.  The backend page names do not always match with the image name, therefore the linked backend page is not always correct.
 
