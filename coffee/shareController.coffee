@@ -17,6 +17,7 @@ shareDialogController.controller 'ShareDiaglogCtrl',
     class ShareDiaglogCtrl
         constructor: (@$scope, @$rootScope, @$resource, @$log, @$modalInstance) ->
             @$scope.shareProfile = @shareProfile
+            @$scope.closeShare = @closeShare
             @$scope.newProfile = {}
 
             
@@ -39,4 +40,7 @@ shareDialogController.controller 'ShareDiaglogCtrl',
                 @$scope.loading = false
                 
                 
+        closeShare: () =>
+            @$modalInstance.dismiss()
+            
             

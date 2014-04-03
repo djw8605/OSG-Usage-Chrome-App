@@ -26,11 +26,17 @@ white: FFFFFF
     margin-bottom: 10px;
 }
 */
+
+
 .navbar-default {
+    /*
     background: linear-gradient(top, #ebeced, #dedfe0);
     background: -webkit-linear-gradient(top, #ebeced, #dedfe0);
+    */
+    background: rgba(220, 221, 216, 0.8);
     
 }
+
 
 .graphInfo .deletegraph {
     position: absolute;
@@ -47,14 +53,19 @@ html,body { overflow-y: scroll; }
 
 
 body {
+    /* No background
     background: #354B5E;
+    */
+    
 }
 
 div.graphContent {
+    /*
     background-color: White;
     border: 5px solid;
     border-radius: 5px;
     border-color: #475F77;
+    */
 }
 
 div.graphs div.graph-item {

@@ -17,15 +17,21 @@
       <span class="help-block">A description to use when sharing this profile</span>
       </div>
       
-      <button class="btn btn-success" ng-click='shareProfile()'><i class="glyphicon glyphicon-cloud"></i></span>&nbsp;Share</button>
-      
-      <div ng-show="loading">Loading...</div>
-      
       <div class="form-group" ng-show="shareURL">
       <label for="shareURL">URL</label>
       <input type="text" class="form-control" name="shareURL" placeholder="Description Name" ng-model="shareURL" select-on-click />
       <span class="help-block">Copy this link and send it to others that you wish to share this profile.</span>
       </div>
+      
+    </fieldset>
+  </form>
+</div>
+
+<div class="modal-footer">
+      <button class="btn btn-default" ng-click='closeShare()'>Close</button>
+      <button class="btn btn-success" ng-click='shareProfile()'><i class="glyphicon glyphicon-cloud"></i></span>&nbsp;Share</button>
+      
+      <div ng-show="loading">Loading...</div>
       
       
     </fieldset>
