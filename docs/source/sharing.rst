@@ -55,3 +55,23 @@ Click the *Add* button to add the shared profile.  It may take a second to load 
 .. note::
    You will not receive updates if the original sharer updates the profile.  Further, any updates you make to the profile are local, and will not be propagated to other users.
 
+
+.. _embedprofile:
+
+Embedding a Shared Profile
+--------------------------
+
+In the sharing dialog, you will notice the embed link.  Use this link to embed a shared profile onto your own webpage.
+
+To embed, the profile you need to:
+
+* Create a profile in the app.
+* Share the profile using the *Share* button.
+* Copy the embed link from the resulting dialog.
+* Paste that link into the HTML of the webpage which you wish to display the profile.
+
+The profile, with all it's graphs and refinements, will be embedded into the webpage.
+
+
+
+
