@@ -69,6 +69,7 @@ Further Reading
 
 You may use more advanced features of the App such as:
 
-* :ref:`sharingprofiles`
 * :ref:`addinggraphs`
 * :ref:`addingprofiles`
+* :ref:`sharingprofiles`
+* :ref:`embedprofile`
