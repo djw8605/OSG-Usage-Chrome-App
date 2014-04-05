@@ -16,15 +16,23 @@
       <input type="text" class="form-control" name="description" placeholder="Description Name" ng-model="newProfile.description" />
       <span class="help-block">A description to use when sharing this profile</span>
       </div>
-      
-      <div class="form-group" ng-show="shareURL">
-      <label for="shareURL">URL</label>
-      <input type="text" class="form-control" name="shareURL" placeholder="Description Name" ng-model="shareURL" select-on-click />
-      <span class="help-block">Copy this link and send it to others that you wish to share this profile.</span>
-      </div>
-      
     </fieldset>
   </form>
+  
+  <fieldset>
+    <legend>Shared URL's</legend>
+    <div class="form-group">
+    <label for="shareURL">Share URL</label>
+    <input type="text" ng-disabled="!shareURL" class="form-control" name="shareURL" placeholder="Share URL" ng-model="shareURL" select-on-click readonly />
+    <span class="help-block">Copy this link and send it to others that you wish to share this profile.</span>
+    </div>
+  
+    <div class="form-group">
+    <label for="embedURL">Embed URL</label>
+    <input type="text" ng-disabled="!embedURL" class="form-control" name="embedURL" placeholder="Embed URL" ng-model="embedURL" select-on-click readonly />
+    <span class="help-block">Insert this code to embed the profile in a webpage.</span>
+    </div>
+  </fieldset>
 </div>
 
 <div class="modal-footer">
