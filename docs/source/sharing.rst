@@ -63,7 +63,7 @@ Embedding a Shared Profile
 
 In the sharing dialog, you will notice the embed link.  Use this link to embed a shared profile onto your own webpage.
 
-To embed, the profile you need to:
+To embed the profile, you need to:
 
 * Create a profile in the app.
 * Share the profile using the *Share* button.
