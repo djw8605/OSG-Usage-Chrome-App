@@ -93,6 +93,15 @@ graphControllerModule.controller 'GraphContoller',
                 @$log.info("Got URL #{@$scope.graphUrl}")
                 target.spin(false)
                 $(".#{@$scope.graphId} .graph-image").removeClass("loading")
+                
+            , (reason) =>
+                # Get of the graph failed
+                target.spin(false)
+                $(".#{@$scope.graphId} .graph-image").removeClass("loading")
+                @$log.info("Got failure to load graph")
+                @$scope.errorMessage = reason
+                
+
             
         setParams: (values) ->
             @$scope.graphData.queryParams[key] = value for key, value of values
