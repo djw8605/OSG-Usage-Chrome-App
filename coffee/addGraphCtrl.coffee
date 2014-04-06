@@ -21,6 +21,7 @@ addGraphController.controller 'AddGraphCtrl',
             graphUrlRegex = /^([\w\:\/\.]*)/
             
             graph_get = @$http.get(@$scope.graph.baseUrl)
+            original_url = @$scope.graph.baseUrl
             @$scope.checkingURL = true
             
             target = $(".statusChecking .spinnerInject").spin()
@@ -40,6 +41,7 @@ addGraphController.controller 'AddGraphCtrl',
                     hostname = @getLocation(@$scope.graph.baseUrl).origin
                     pathname = graphUrlRegex.exec(img[0].textContent)[0]
                     @$scope.graph.baseUrl = "#{hostname}/#{pathname}"
+                    @$scope.graph.websiteURL = original_url
                     @$log.info(@$scope.graph)
                     @$modalInstance.close(@$scope.graph)
                 # if raw image

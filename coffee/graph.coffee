@@ -126,7 +126,10 @@ graphControllerModule.controller 'GraphContoller',
         copyGraphLink: () =>
             # Get the baseURL for the graph
             # First, translate the baseUrl to the xml included URL.
-            url = @graphService.getExernalUrl(@graphData.baseUrl, @$scope.graphData.queryParams)
+            if ( @graphData.websiteURL? )
+                url = @graphService.getExernalUrl(@graphData.websiteURL, @$scope.graphData.queryParams)
+            else
+                url = @graphService.getExernalUrl(@graphData.baseUrl, @$scope.graphData.queryParams)
             
             # create the element to 'select' to copy the text from
             copyFrom = $("<textarea />")
