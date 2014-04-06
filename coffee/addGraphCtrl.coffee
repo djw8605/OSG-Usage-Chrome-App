@@ -64,5 +64,5 @@ addGraphController.controller 'AddGraphCtrl',
 
             
         cancel: () =>
-            $modalInstance.dismiss('cancel')
+            @$modalInstance.dismiss('cancel')
         
