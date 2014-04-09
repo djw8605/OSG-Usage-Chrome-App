@@ -192,6 +192,7 @@
             modalInstance.result.then(function(params) {
                 $log.info("Profile graph edit closed...");
                 $scope.profile.queryParams = params;
+                $rootScope.$broadcast('profileQueryChange', $scope.profile.queryParams);
             });
             
         }

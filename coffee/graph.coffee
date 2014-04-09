@@ -36,7 +36,7 @@ graphControllerModule.controller 'GraphContoller',
                 
                 @$timeout =>
                     @$scope.$watch('graphData', @refreshGraph, true)
-                    @$rootScope.$watch('profile.queryParams', @updateFromProfile, true)
+                    @$scope.$on('profileQueryChange', @updateFromProfile);
             else
                 # built in graphs
                 @graphService.getGraph(@$scope.graphId).then (@graphData) =>
@@ -51,7 +51,7 @@ graphControllerModule.controller 'GraphContoller',
                 
                     # Watch the 2 places that can change the values of the graphs
                     @$scope.$watch('graphData', @refreshGraph, true)
-                    @$rootScope.$watch('profile.queryParams', @updateFromProfile, true)
+                    @$scope.$on('profileQueryChange', @updateFromProfile);
                 , (reason) =>
                     @$log.info("Refused to load URL because #{reason}")
             
