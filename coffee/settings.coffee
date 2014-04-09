@@ -10,31 +10,18 @@ settings.service 'settingsService',
         @getSettings()
 
     getSettings: ->
-        chrome.storage.sync.get 'settings', (items) =>
-            if ( ! items.settings? )
-                chrome.storage.local.get 'settings', (items) =>
-                    if ( ! items.settings? )
-                        @$rootScope.$apply () =>
-                            @settings = {}
-                            @$rootScope.settings = @settings
-                            @settings_defer.resolve()
-                            @$log.info("new settings")
-                    else
-                        @$rootScope.$apply () =>
-                            @settings = angular.fromJson(items.settings)
-                            @$rootScope.settings = @settings
-                            @settings_defer.resolve()
-                            @$log.info("from local: Settings = #{items.settings}")
-            else
-                @$rootScope.$apply () =>
-                    @settings = angular.fromJson(items.settings)
-                    @$rootScope.settings = @settings
-                    @settings_defer.resolve()
-                    @$log.info("from sync: Settings = #{items.settings}")
-            
+        
+        chrome.runtime.sendMessage {message: "getSettings"}, (response) =>
+            @$rootScope.$apply () =>
+                @settings = angular.fromJson(response)
+                @$rootScope.settings = @settings
+                @settings_defer.resolve()
+                @$log.info("Got settings from message passing")
+                @$log.info(@settings)
                 
-        @settings_defer.promise.then () =>
-            @$rootScope.$watch('settings', @settingsChange, true)
+                
+            @settings_defer.promise.then () =>
+                @$rootScope.$watch('settings', @settingsChange, true)
         
     
     settingsChange: (newValue, oldValue) =>
@@ -52,20 +39,11 @@ settings.service 'settingsService',
         @notify_list.push toCallback
     
     syncSettings: ->
-        json_string = angular.toJson(@settings)
-        chrome.storage.sync.set {settings: json_string}, () =>
-            if (chrome.runtime.lastError?)
-                @$log.error("Error setting settings: #{chrome.runtime.lastError}")
-            else
-                @$log.info("Saving to sync was successful!")
-        chrome.storage.local.set {settings: json_string}, () =>
-            if (chrome.runtime.lastError?)
-                @$log.error("Error setting settings: #{chrome.runtime.lastError}")
-            else
-                @$log.info("Saving to local was successful!")
         
-        for func in @notify_list
-            func()
+        chrome.runtime.sendMessage {message: 'saveSettings', settings: @settings}, (response) =>
+            @$log.info("Send message saving settings")
+        
+
 
     getProfiles: ->
         profile_defer = @$q.defer()
@@ -117,9 +95,6 @@ settings.service 'settingsService',
         delete @settings.profiles
         delete @settings.default_profile
         @syncSettings()
-    
-
-
     
 
 
