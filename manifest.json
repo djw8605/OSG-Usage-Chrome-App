@@ -14,5 +14,5 @@
       "https://osg-gratia-share.appspot.com/"
   ],
   
-  "icons": { "16": "osglogo.16.png"}
+  "icons": { "16": "osglogo.16.png", "128": "PromotionalIcon128x128.png"}
 }
