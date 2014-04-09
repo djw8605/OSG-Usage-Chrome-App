@@ -48,7 +48,7 @@ editParamsControllerModule.controller 'EditParamsCtrl',
             return s;
             
             
-        submitRefineParams: () =>            
+        submitRefineParams: () =>   
             
             @$modalInstance.close(@$scope.params)
             
