@@ -56,7 +56,7 @@ graphControllerModule.controller 'GraphContoller',
                     @$log.info("Refused to load URL because #{reason}")
             
         
-        updateFromProfile: (newValue, oldValue) =>
+        updateFromProfile: (event, newValue) =>
             @setParams(newValue)
             
             
