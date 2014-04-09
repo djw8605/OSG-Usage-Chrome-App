@@ -65,10 +65,10 @@ In the sharing dialog, you will notice the embed link.  Use this link to embed a
 
 To embed the profile, you need to:
 
-* Create a profile in the app.
-* Share the profile using the *Share* button.
-* Copy the embed link from the resulting dialog.
-* Paste that link into the HTML of the webpage which you wish to display the profile.
+#. Create a profile in the app.
+#. Share the profile using the *Share* button.
+#. Copy the embed link from the resulting dialog.
+#. Paste that link into the HTML of the webpage which you wish to display the profile.
 
 The profile, with all it's graphs and refinements, will be embedded into the webpage.
 
