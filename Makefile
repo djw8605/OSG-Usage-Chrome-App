@@ -17,6 +17,6 @@ coffee/%.js: coffee/%.coffee
 	
 package: $(ZIPNAME)
 
-$(ZIPNAME): js/* coffee/*.js html/* manifest.json fonts/* css/* data/* main.html osglogo.16.png
+$(ZIPNAME): js/* coffee/*.js html/* manifest.json fonts/* css/* data/* main.html osglogo.16.png PromotionalIcon128x128.png
 	$(ZIP) $^
 
