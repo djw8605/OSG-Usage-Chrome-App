@@ -12,22 +12,19 @@
     </div>
     <div class="form-group">
     <label for="description">Graph Description</label>
-    <input type="text" class="form-control" name="description" placeholder="description" ng-model="graph.description" />
+    <input type="text" class="form-control" name="description" placeholder="Description" ng-model="graph.description" />
     <span class="help-block">A description to be given for the graph</span>
     </div>
     
     <div class="form-group has-feedback" ng-class="{'has-success': form.baseUrl.$valid, 'has-error': !form.baseUrl.$valid}">
     <label for="baseUrl">Base Graph URL</label>
-    <input type="url" ng-pattern="/https?\:\/\/gratiaweb\.grid\.iu\.edu\/gratia\/.*/"class="form-control" name="baseUrl" placeholder="http://gratiaweb.grid.iu.edu/..." ng-model="graph.baseUrl" />
+    <input type="url" ng-pattern="/https?\:\/\/gratiaweb\.grid\.iu\.edu\/gratia\/.*/" class="form-control" name="baseUrl" placeholder="http://gratiaweb.grid.iu.edu/..." ng-model="graph.baseUrl" />
     <span class="glyphicon glyphicon-ok form-control-feedback" ng-show="form.baseUrl.$valid"></span>
     <span class="glyphicon glyphicon-remove form-control-feedback" ng-show="!form.baseUrl.$valid"></span>
     <span class="help-block">The URL for the graph image or page.</span>
     </div>
     
-    <div class="form-group">
-        <button class="btn btn-primary"  ng-click='addGraph()'>Add Graph</button>
-        <button class="btn btn-danger" ng-click='cancel()'>Cancel</button>
-    </div>
+
     
     <div class="statusChecking" ng-show="checkingURL">
       <div class="spinnerInject"></div>
@@ -38,5 +35,11 @@
     </div>
     
   </form>
+
+</div>
+
+<div class="modal-footer">
+  <button class="btn btn-default" ng-click='cancel()'>Cancel</button>
+  <button class="btn btn-primary"  ng-click='addGraph()'>Add Graph</button>
 </div>
 
