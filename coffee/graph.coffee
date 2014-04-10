@@ -2,6 +2,20 @@
 
 graphControllerModule = angular.module 'osgUsageApp.controller.graph', ['osgUsageApp.graphService', 'osgUsageApp.controller.editparams', 'ui.bootstrap', 'ngAnimate', 'flash']
 
+graphControllerModule.directive 'contenteditable', () ->
+    require: 'ngModel'
+    link: (scope, elm, attrs, ctrl) ->
+        elm.on 'blur', () =>
+            scope.$apply () =>
+                ctrl.$setViewValue(elm.html())
+        
+        ctrl.$render = () ->
+            elm.html ctrl.$viewValue
+            
+        #ctrl.$setViewValue(ctrl.$viewValue)
+        return
+
+
 graphControllerModule.controller 'GraphContoller',
 
     class GraphController
@@ -35,7 +49,7 @@ graphControllerModule.controller 'GraphContoller',
                 @$scope.description = @graphData.description
                 
                 @$timeout =>
-                    @$scope.$watch('graphData', @refreshGraph, true)
+                    @$scope.$watch('graphData.queryParams', @refreshGraph, true)
                     @$scope.$on('profileQueryChange', @updateFromProfile);
             else
                 # built in graphs
@@ -50,7 +64,7 @@ graphControllerModule.controller 'GraphContoller',
                     @$scope.description = @graphData.description
                 
                     # Watch the 2 places that can change the values of the graphs
-                    @$scope.$watch('graphData', @refreshGraph, true)
+                    @$scope.$watch('graphData.queryParams', @refreshGraph, true)
                     @$scope.$on('profileQueryChange', @updateFromProfile);
                 , (reason) =>
                     @$log.info("Refused to load URL because #{reason}")

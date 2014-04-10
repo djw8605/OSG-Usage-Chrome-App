@@ -302,6 +302,27 @@ color: #FFFFFF;
 
 
 
+div[contentEditable] {
+  cursor: pointer;
+  border: 1px solid;
+  border-color: rgba(0, 0, 0, 0.0);
+  -webkit-transition: all linear 0.2s;
+  transition: all linear 0.2s;
+}
+
+div[contentEditable]:hover {
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075),0 0 8px rgba(102, 175, 233, .6);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075),0 0 8px rgba(102, 175, 233, .6);
+}
+
+div[contentEditable]:focus {
+    outline: 0;
+    border-color: #66afe9;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075),0 0 8px rgba(102, 175, 233, .6);
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075),0 0 8px rgba(102, 175, 233, .6);
+    
+}
+
 
 /* For the graph slideout
 From: http://www.dynamicdrive.com/style/csslibrary/item/image_with_sliding_description_panel_using_css3_transitions/
