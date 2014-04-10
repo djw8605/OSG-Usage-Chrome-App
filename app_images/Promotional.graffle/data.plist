@@ -36,7 +36,7 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2014-03-26 04:37:09 +0000</string>
+	<string>2014-04-10 05:07:57 +0000</string>
 	<key>Modifier</key>
 	<string>Derek Weitzel</string>
 	<key>NotesVisible</key>
@@ -389,6 +389,51 @@
 						</dict>
 						<key>stroke</key>
 						<dict>
+							<key>Draws</key>
+							<string>NO</string>
+						</dict>
+					</dict>
+				</dict>
+				<dict>
+					<key>Bounds</key>
+					<string>{{11, 19.5}, {106, 89}}</string>
+					<key>Class</key>
+					<string>ShapedGraphic</string>
+					<key>ID</key>
+					<integer>4</integer>
+					<key>Shape</key>
+					<string>Rectangle</string>
+					<key>Style</key>
+					<dict>
+						<key>fill</key>
+						<dict>
+							<key>Color</key>
+							<dict>
+								<key>b</key>
+								<string>0.666667</string>
+								<key>g</key>
+								<string>0.666667</string>
+								<key>r</key>
+								<string>0.666667</string>
+							</dict>
+							<key>FillType</key>
+							<integer>3</integer>
+							<key>GradientColor</key>
+							<dict>
+								<key>b</key>
+								<string>0.292314</string>
+								<key>g</key>
+								<string>0.227673</string>
+								<key>r</key>
+								<string>0.161712</string>
+							</dict>
+							<key>MiddleFraction</key>
+							<real>0.0</real>
+						</dict>
+						<key>stroke</key>
+						<dict>
+							<key>CornerRadius</key>
+							<real>9</real>
 							<key>Draws</key>
 							<string>NO</string>
 						</dict>
