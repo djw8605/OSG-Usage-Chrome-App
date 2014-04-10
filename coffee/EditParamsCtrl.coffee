@@ -25,9 +25,12 @@ editParamsControllerModule.directive 'inputdate', ->
 editParamsControllerModule.controller 'EditParamsCtrl',
 
     class EditParamsCtrl
-        constructor: (@$scope, @$log, @$modalInstance, @queryParams) ->
+        constructor: (@$scope, @$log, @$modalInstance, @queryParams, @graphData, @modalTitle) ->
             @$scope.params = angular.copy(@queryParams)
+            @$scope.graphData = @graphData
+            @$scope.modalTitle = @modalTitle
             @$scope.submitRefineParams = @submitRefineParams
+            @$scope.dismiss = @dismiss
             
             nowdate = new Date()
             twoWeeksAgo = new Date()
@@ -51,4 +54,8 @@ editParamsControllerModule.controller 'EditParamsCtrl',
         submitRefineParams: () =>   
             
             @$modalInstance.close(@$scope.params)
+        
+        dismiss: () =>
+            @$modalInstance.dismiss()
+            
             

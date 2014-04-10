@@ -131,6 +131,12 @@ graphControllerModule.controller 'GraphContoller',
                 resolve: {
                     queryParams: () =>
                         @$scope.graphData.queryParams
+                        
+                    graphData: () =>
+                        @$scope.graphData
+                        
+                    modalTitle: () =>
+                        "Edit Graph Parameters"
                 }
             });
             modalInstance.result.then (params) =>

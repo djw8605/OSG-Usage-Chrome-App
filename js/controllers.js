@@ -204,6 +204,14 @@ $.parseParams = function(query) {
                 resolve: {
                     queryParams: function () {
                         return $scope.profile.queryParams
+                    },
+                    
+                    graphData: function () {
+                        return $scope.profile;
+                    },
+                    
+                    modalTitle: function() {
+                        return "Profile Wide Parameters";
                     }
                 }
             });
