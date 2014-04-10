@@ -7,7 +7,7 @@ graphControllerModule.directive 'contenteditable', () ->
     link: (scope, elm, attrs, ctrl) ->
         elm.on 'blur', () =>
             scope.$apply () =>
-                ctrl.$setViewValue(elm.html())
+                ctrl.$setViewValue(elm.text())
         
         ctrl.$render = () ->
             elm.html ctrl.$viewValue
