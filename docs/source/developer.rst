@@ -22,3 +22,4 @@ Built-in Data
 Sharing Framework
 -----------------
 
+The sharing framework is hosted on `Google App Engine <https://developers.google.com/appengine>`_.  It provides a REST / JSON interface to store and retrieve profiles.
