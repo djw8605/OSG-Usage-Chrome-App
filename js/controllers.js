@@ -26,7 +26,7 @@ $.parseParams = function(query) {
     
     var ProfileSetupControllerInstance = function($scope, $modalInstance, $http, $log, $resource) {
 
-        $http.get('../data/templates.json').success(function(data) {
+        $http.get('data/templates.json').success(function(data) {
            $log.info("Got templates data!");
            $scope.templates = data;
            $scope.selected = $scope.templates[0];

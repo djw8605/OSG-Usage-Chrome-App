@@ -26,7 +26,7 @@ define [ 'angular', 'angular-resource' ], (angular) ->
 
             readGraphsData: ->
                 @$log.info "Getting the graphs.json"
-                @http_promise = @$http.get('../data/graphs.json').success (data) =>
+                @http_promise = @$http.get('data/graphs.json').success (data) =>
                     @$log.info "Received graphs.json: #{data}"
                     @graphsData = data
 

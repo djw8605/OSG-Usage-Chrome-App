@@ -21,7 +21,7 @@ define([ 'angular', 'controllers', 'angular-route', 'graph', 'angular-animate' ]
             function ($routeProvider) {
                 $routeProvider.
                     when('/profile/:profileId', {
-                        templateUrl: '../html/graphs.html',
+                        templateUrl: 'html/graphs.html',
                         controller: 'GraphContainerCtrl'
                     }).
                     otherwise({
