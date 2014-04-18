@@ -5,7 +5,7 @@ define [ 'angular', 'angular-resource' ], (angular) ->
     addGraphController.controller 'AddGraphCtrl',
 
         class AddGraphCtrl
-            constructor: (@$scope, @$rootScope, @$log, @$modalInstance, @$http @$resource) ->
+            constructor: (@$scope, @$rootScope, @$log, @$modalInstance, @$http, @$resource) ->
                 @$scope.graph = {}
                 @$scope.graph.queryParams = {}
                 @$scope.addGraph = @addGraph
