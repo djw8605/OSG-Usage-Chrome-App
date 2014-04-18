@@ -29,7 +29,6 @@ define [ 'angular', 'angular-resource' ], (angular) ->
 
 
 
-                graph_get = @$http.get(@$scope.graph.baseUrl)
                 original_url = @$scope.graph.baseUrl
                 @$scope.checkingURL = true
                 params = $.parseParams ( original_url.split('?')[1]  )
@@ -68,7 +67,7 @@ define [ 'angular', 'angular-resource' ], (angular) ->
                         @$modalInstance.close(@$scope.graph)
 
 
-                graph_get.error (data, status, headers, config) =>
+                .error (data, status, headers, config) =>
                     @$log.info("Failed to get website from #{@$scope.graph.baseUrl}")
                     @$scope.errorDisplay = "Unable to contact website: #{status}"
 
