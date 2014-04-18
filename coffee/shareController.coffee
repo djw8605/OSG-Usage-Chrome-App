@@ -22,6 +22,7 @@ shareDialogController.controller 'ShareDiaglogCtrl',
 
             
         shareProfile: () =>
+            @$scope.errorMessage = null
             # Deep copy the profile
             newProfile = angular.copy(@$rootScope.profile)
             
@@ -40,8 +41,14 @@ shareDialogController.controller 'ShareDiaglogCtrl',
                 @$log.info(value)
                 @$scope.loading = false
                 
+            , (httpResponse) =>
+                # Error sharing
+                @$log.error("Error sharing profile")
+                @$log.error(httpResponse)
+                @$scope.loading = false
+                @$scope.errorMessage = "Error sharing profile.  Status: #{httpResponse.status}"
+
                 
         closeShare: () =>
             @$modalInstance.dismiss()
-            
-            
+

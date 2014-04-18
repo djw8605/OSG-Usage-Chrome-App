@@ -33,6 +33,8 @@
     <span class="help-block">Insert this code to embed the profile in a webpage.</span>
     </div>
   </fieldset>
+
+  <p ng-show="errorMessage" class="bg-danger">{{errorMessage}}</p>
 </div>
 
 <div class="modal-footer">
@@ -40,6 +42,7 @@
       <button class="btn btn-success" ng-click='shareProfile()'><i class="glyphicon glyphicon-cloud"></i></span>&nbsp;Share</button>
       
       <div ng-show="loading">Loading...</div>
+
       
       
     </fieldset>
