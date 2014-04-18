@@ -22,6 +22,13 @@ define [ 'angular', 'angular-resource' ], (angular) ->
             addGraph: () =>
                 graphUrlRegex = /^([\w\:\/\.]*)/
 
+                # Startswith implementation
+                if (typeof String.prototype.startsWith != 'function')
+                    String.prototype.startsWith = (str) ->
+                        return this.slice(0, str.length) == str;
+
+
+
                 graph_get = @$http.get(@$scope.graph.baseUrl)
                 original_url = @$scope.graph.baseUrl
                 @$scope.checkingURL = true
@@ -35,7 +42,7 @@ define [ 'angular', 'angular-resource' ], (angular) ->
 
                     headers = headers()
                     # If html / xml
-                    if (headers['content-type'] in ['text/xml', 'application/xml'])
+                    if (headers['content-type'].startsWith('text/xml') or headers['content-type'].startsWith('application/xml'))
                         @$log.info("Got website from #{@$scope.graph.baseUrl}")
                         # Now, check if we can parse it
                         webpage = $.parseXML( data )
@@ -52,7 +59,7 @@ define [ 'angular', 'angular-resource' ], (angular) ->
                         @$log.info(@$scope.graph)
                         @$modalInstance.close(@$scope.graph)
                     # if raw image
-                    else if (headers['content-type'] in ['image/png', ['image/svg+xml']])
+                    else if (headers['content-type'].startsWith('image/png') or headers['content-type'].startsWith('image/svg+xml'))
                         @$log.info("Got a raw image...")
                         @$scope.graph.baseUrl = graphUrlRegex.exec(@$scope.graph.baseUrl)[0]
                         @$log.info("Got new baseUrl")
