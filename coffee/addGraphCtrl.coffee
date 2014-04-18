@@ -31,7 +31,7 @@ define [ 'angular', 'angular-resource' ], (angular) ->
                 
                 toSend = { "requestURL": @$scope.graph.baseUrl }
                 
-                @$resource("/api/checkgraph").save JSON.stringify(toSend), (value, headers) =>
+                @$http.post("/api/checkgraph", JSON.stringify(toSend)).success (data, status, headers) =>
 
                     headers = headers()
                     # If html / xml
