@@ -1,11 +1,11 @@
-define [ 'angular' ], (angular) ->
+define [ 'angular', 'angular-resource' ], (angular) ->
 
-    addGraphController = angular.module 'osgUsageApp.controller.addgraph', []
+    addGraphController = angular.module 'osgUsageApp.controller.addgraph', [ 'ngResource' ]
 
     addGraphController.controller 'AddGraphCtrl',
 
         class AddGraphCtrl
-            constructor: (@$scope, @$rootScope, @$log, @$modalInstance, @$http) ->
+            constructor: (@$scope, @$rootScope, @$log, @$modalInstance, @$http @$resource) ->
                 @$scope.graph = {}
                 @$scope.graph.queryParams = {}
                 @$scope.addGraph = @addGraph
