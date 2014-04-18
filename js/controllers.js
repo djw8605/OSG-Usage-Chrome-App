@@ -1,6 +1,10 @@
 /**
  * $.parseParams - parse query string paramaters into an object.
  */
+/*global define*/
+
+define([ 'jquery', 'angular', 'settings', 'ui-bootstrap-tpls', 'angular-resource', 'shareController', 'addGraphCtrl', 'graphContainerCtrl'  ], function ($, angular, settings) {
+
 (function($) {
 var re = /([^&=]+)=?([^&]*)/g;
 var decodeRE = /\+/g;  // Regex for replacing addition symbol with a space
@@ -76,7 +80,7 @@ $.parseParams = function(query) {
 
     };
     
-    angular.module('osgUsageApp.controllers', [ 'ui.bootstrap', 'osgUsageApp.settings', 
+    return angular.module('osgUsageApp.controllers', [ 'ui.bootstrap', 'osgUsageApp.settings',
                                                 'osgUsageApp.controller.containergraph', 'ngResource', 'osgUsageApp.controller.sharedialog',
                                                 'osgUsageApp.controller.addgraph'])
     
@@ -247,7 +251,7 @@ $.parseParams = function(query) {
     });
     
     
-    
+});
     
  
 
