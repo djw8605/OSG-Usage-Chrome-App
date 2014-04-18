@@ -11,17 +11,32 @@ settings.service 'settingsService',
 
     getSettings: ->
         
-        chrome.runtime.sendMessage {message: "getSettings"}, (response) =>
-            @$rootScope.$apply () =>
-                @settings = angular.fromJson(response)
-                @$rootScope.settings = @settings
-                @settings_defer.resolve()
-                @$log.info("Got settings from message passing")
-                @$log.info(@settings)
+        # Check if we are running as a extension
+        try
+            @settings = JSON.parse (localStorage.getItem "settings")
+        catch e
+            @$log.error("Error reading settings object: #{e.message}")
+            @settings = {}
+
+        if @settings == null
+            @settings = {}
+        @$rootScope.settings = @settings
+        @settings_defer.resolve()
+
+        @$rootScope.$watch('settings', @settingsChange, true)
+
+
+        #chrome.runtime.sendMessage {message: "getSettings"}, (response) =>
+        #    @$rootScope.$apply () =>
+        #        @settings = angular.fromJson(response)
+        #        @$rootScope.settings = @settings
+        #        @settings_defer.resolve()
+        #        @$log.info("Got settings from message passing")
+        #        @$log.info(@settings)
                 
                 
-            @settings_defer.promise.then () =>
-                @$rootScope.$watch('settings', @settingsChange, true)
+        #    @settings_defer.promise.then () =>
+        #        @$rootScope.$watch('settings', @settingsChange, true)
         
     
     settingsChange: (newValue, oldValue) =>
@@ -40,8 +55,10 @@ settings.service 'settingsService',
     
     syncSettings: ->
         
-        chrome.runtime.sendMessage {message: 'saveSettings', settings: @settings}, (response) =>
-            @$log.info("Send message saving settings")
+        localStorage.setItem "settings", JSON.stringify(@settings)
+
+        #chrome.runtime.sendMessage {message: 'saveSettings', settings: @settings}, (response) =>
+        #    @$log.info("Send message saving settings")
         
 
 

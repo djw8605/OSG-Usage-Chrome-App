@@ -71,9 +71,23 @@ graphModule.service 'graphService',
             newParams
         
         
+        _createURL: (baseUrl, queryParams) ->
+            convertedParams = @convertParams(queryParams)
+            joinedParams = for key, value of convertedParams
+                "#{key}=#{value}"
+
+            totalParams = joinedParams.join('&')
+            if totalParams == ""
+                return "#{baseUrl}"
+            else
+                return "#{baseUrl}?#{totalParams}"
+
         getUrl: (baseUrl, queryParams) ->
             # In this funciton, we get the query string, download the graph,
             # save it, and return a url
+
+            return @_createURL baseUrl, queryParams
+
             deferred_graphUrl = @$q.defer()
             
 
@@ -99,6 +113,9 @@ graphModule.service 'graphService',
             
             deferred_graphUrl.promise
             
+
+
+
             
         getExternalUrl: (baseUrl, queryParams) ->
             extractRegex = /(.*gratia)\/.*\/(.*)/
@@ -112,13 +129,5 @@ graphModule.service 'graphService',
             if (extractedUrl?)
                 reconstructedUrl = extractedUrl[1] + "/xml/" + extractedUrl[2]
                 # Now add the query params
-                convertedParams = @convertParams(queryParams)
-                joinedParams = for key, value of convertedParams
-                    "#{key}=#{value}"
-                
-                totalParams = joinedParams.join('&')
-                if totalParams == ""
-                    return "#{reconstructedUrl}"
-                else
-                    return "#{reconstructedUrl}?#{totalParams}"
+                @_createURL reconstructedUrl, queryParams
                 

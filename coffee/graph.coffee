@@ -102,19 +102,21 @@ graphControllerModule.controller 'GraphContoller',
             $(".#{@$scope.graphId} .graph-image").addClass("loading")
             
             
-            @graphService.getUrl(@graphData.baseUrl, @$scope.graphData.queryParams).then (graphUrl) =>
-                @$scope.graphUrl = graphUrl
+            graphUrl = @graphService.getUrl(@graphData.baseUrl, @$scope.graphData.queryParams)
+            @$scope.graphUrl = graphUrl
+            @$log.info("Trying to load #{graphUrl}")
+
+            $(".#{@$scope.graphId} .graph-image").load () =>
                 @$log.info("Got URL #{@$scope.graphUrl}")
                 target.spin(false)
                 $(".#{@$scope.graphId} .graph-image").removeClass("loading")
                 
-            , (reason) =>
+            .error (e) =>
                 # Get of the graph failed
                 target.spin(false)
                 $(".#{@$scope.graphId} .graph-image").removeClass("loading")
                 @$log.info("Got failure to load graph")
-                @$scope.errorMessage = reason
-                
+                @$scope.errorMessage = "Error loading image"
 
             
         setParams: (values) ->
