@@ -31,7 +31,7 @@ define [ 'angular', 'angular-resource' ], (angular) ->
                 
                 toSend = { "requestURL": @$scope.graph.baseUrl }
                 
-                @$resource("https://osg-gratia-share.appspot.com/api/checkgraph").save JSON.stringify(toSend), (value, headers) =>
+                @$resource("/api/checkgraph").save JSON.stringify(toSend), (value, headers) =>
 
                     headers = headers()
                     # If html / xml

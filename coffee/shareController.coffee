@@ -37,7 +37,7 @@ define ['angular', 'angular-resource' ], (angular, angularResource) ->
 
                 @$scope.loading = true
 
-                @$resource("https://osg-gratia-share.appspot.com/api/profile").save strProfile, (value, headers) =>
+                @$resource("/api/profile").save strProfile, (value, headers) =>
                     @$scope.shareURL = value.url
                     @$scope.embedURL = value.embed
                     @$log.info("Success sharing profile")
