@@ -9,14 +9,18 @@ graphModule.service 'graphService',
             
             # First, read in the graph configuration (which is json)
             @readGraphsData()
+            @requestFilesystem()
             
+
+
+        requestFilesystem: ->
             # Request file system space for the graphs, 10MB
             @deferred_fs = @$q.defer()
-            window.webkitRequestFileSystem(TEMPORARY, 10 * 1024 * 1024, (@fs) =>
+            window.webkitRequestFileSystem TEMPORARY, 10 * 1024 * 1024, (@fs) =>
                 @$log.info "Initiailized the FS"
                 @deferred_fs.resolve()
-                )
 
+            return @deferred_fs.promise
             
         
         readGraphsData: ->
@@ -72,32 +76,31 @@ graphModule.service 'graphService',
             # save it, and return a url
             deferred_graphUrl = @$q.defer()
             
-            # Wait until the filesystem is ready
-            @deferred_fs.promise.then () =>
-                # Need a better way to uniqify the graph file name
-                filename = Math.floor((Math.random() * 1000000) + 1).toString() + '.png'
-                fs_url = @fs.root.toURL() + @graphFolder + '/' + filename
-                url_get = @$http.get(baseUrl, {params: @convertParams(queryParams), responseType: 'blob'})
-                
-                url_get.success (data, status, headers, config) =>
-                    @$log.info("Retrieved graph...")
-                    params = $.param(@convertParams(queryParams))
-                    @$log.info("#{baseUrl}?#{params}")
-                    data.name = filename
-                    # @writeFile(data)
-                    
-                    deferred_graphUrl.resolve(window.URL.createObjectURL(data))
+
+            # Need a better way to uniqify the graph file name
+            #filename = Math.floor((Math.random() * 1000000) + 1).toString() + '.png'
+            #fs_url = @fs.root.toURL() + @graphFolder + '/' + filename
+            url_get = @$http.get(baseUrl, {params: @convertParams(queryParams), responseType: 'blob'})
             
-            
-                url_get.error (data, status, headers, config) =>
-                    @$log.info("Failed to get graph")
-                    deferred_graphUrl.reject("Error #{status}")
+            url_get.success (data, status, headers, config) =>
+                @$log.info("Retrieved graph...")
+                params = $.param(@convertParams(queryParams))
+                @$log.info("#{baseUrl}?#{params}")
+                #data.name = filename
+                # @writeFile(data)
+
+                deferred_graphUrl.resolve(window.URL.createObjectURL(data))
+
+
+            url_get.error (data, status, headers, config) =>
+                @$log.info("Failed to get graph")
+                deferred_graphUrl.reject("Error #{status}")
                 
             
             deferred_graphUrl.promise
             
             
-        getExernalUrl: (baseUrl, queryParams) ->
+        getExternalUrl: (baseUrl, queryParams) ->
             extractRegex = /(.*gratia)\/.*\/(.*)/
             
             # Extract the components from the URL
@@ -114,6 +117,8 @@ graphModule.service 'graphService',
                     "#{key}=#{value}"
                 
                 totalParams = joinedParams.join('&')
-                return "#{reconstructedUrl}?#{totalParams}"
+                if totalParams == ""
+                    return "#{reconstructedUrl}"
+                else
+                    return "#{reconstructedUrl}?#{totalParams}"
                 
-        
