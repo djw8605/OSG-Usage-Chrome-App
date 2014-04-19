@@ -39,16 +39,16 @@ module.exports = function(grunt) {
         options: {
           mainConfigFile: 'requireConfig.js',
           baseUrl: "js",
-          generateSourceMaps: true,
-          preserveLicenseComments: false,
+          //generateSourceMaps: true,
+          //preserveLicenseComments: false,
           optimize: 'uglify2',
-          //name: 'main',
-          modules: [ {
-            name: 'main'
-          }
-          ],
-          // out: '<%= destinationFolder %>/js/main.js',
-          dir: '<%= destinationFolder %>/js'
+          name: 'main',
+          //modules: [ {
+          //  name: 'main'
+          //}
+          //],
+          out: '<%= destinationFolder %>/js/main.js',
+          //dir: '<%= destinationFolder %>/js'
 
         }
       },
