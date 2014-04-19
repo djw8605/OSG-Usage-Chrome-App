@@ -1,11 +1,11 @@
-define [ 'angular', 'settings' ], (angular) ->
+define [ 'angular', 'settings' ], () ->
 
     graphContainerControllerModule = angular.module 'osgUsageApp.controller.containergraph', ['osgUsageApp.settings']
 
     graphContainerControllerModule.controller 'GraphContainerCtrl',
 
         class GraphContainerCtrl
-
+            @$inject = ['$scope', '$routeParams', '$log', 'settingsService', '$location', '$rootScope']
             constructor: (@$scope, @$routeParams, @$log, @settingsService, @$location, @$rootScope) ->
                 @$log.info("Got #{ @$routeParams.profileId }")
                 @$log.info("Got #{ @$scope.profile }")
@@ -22,4 +22,3 @@ define [ 'angular', 'settings' ], (angular) ->
                         @$log.info("Profile Graphs: #{profile.graphs}")
                         @$scope.profile = profile
                         @$scope.graphs = profile.graphs
-

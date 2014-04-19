@@ -1,5 +1,5 @@
 
-define ['angular', 'angular-resource' ], (angular, angularResource) ->
+define ['angular', 'angular-resource' ], () ->
 
     shareDialogController = angular.module 'osgUsageApp.controller.sharedialog', ['ngResource']
 
@@ -18,6 +18,7 @@ define ['angular', 'angular-resource' ], (angular, angularResource) ->
     shareDialogController.controller 'ShareDiaglogCtrl',
 
         class ShareDiaglogCtrl
+            @$inject = ['$scope', '$rootScope', '$resource', '$log', '$modalInstance' ]
             constructor: (@$scope, @$rootScope, @$resource, @$log, @$modalInstance) ->
                 @$scope.shareProfile = @shareProfile
                 @$scope.closeShare = @closeShare
@@ -56,4 +57,3 @@ define ['angular', 'angular-resource' ], (angular, angularResource) ->
                 @$modalInstance.dismiss()
 
     return shareDialogController
-

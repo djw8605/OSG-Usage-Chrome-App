@@ -1,10 +1,11 @@
-define [ 'angular' ], (angular) ->
+define [ 'angular' ], () ->
 
     settings = angular.module 'osgUsageApp.settings', []
 
 
     settings.service 'settingsService',
       class Settings
+        @$inject = [ '$q', '$log', '$rootScope' ]
         constructor: (@$q, @$log, @$rootScope) ->
             @settings_defer = @$q.defer()
             @notify_list = new Array()
@@ -113,6 +114,3 @@ define [ 'angular' ], (angular) ->
             delete @settings.profiles
             delete @settings.default_profile
             @syncSettings()
-
-
-

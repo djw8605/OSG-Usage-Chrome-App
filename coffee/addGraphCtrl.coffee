@@ -1,10 +1,11 @@
-define [ 'angular', 'angular-resource' ], (angular) ->
+define [ 'angular', 'angular-resource' ], () ->
 
     addGraphController = angular.module 'osgUsageApp.controller.addgraph', [ 'ngResource' ]
 
     addGraphController.controller 'AddGraphCtrl',
 
         class AddGraphCtrl
+            @$inject = ['$scope', '$rootScope', '$log', '$modalInstance', '$http', '$resource']
             constructor: (@$scope, @$rootScope, @$log, @$modalInstance, @$http, @$resource) ->
                 @$scope.graph = {}
                 @$scope.graph.queryParams = {}
@@ -34,9 +35,9 @@ define [ 'angular', 'angular-resource' ], (angular) ->
                 params = $.parseParams ( original_url.split('?')[1]  )
 
                 target = $(".statusChecking .spinnerInject").spin()
-                
+
                 toSend = { "requestURL": @$scope.graph.baseUrl }
-                
+
                 @$http.post("/api/checkgraph", JSON.stringify(toSend)).success (data, status, headers) =>
 
                     headers = headers()

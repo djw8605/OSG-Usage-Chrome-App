@@ -1,5 +1,5 @@
 
-define [ 'angular', 'graphService', 'EditParamsCtrl', 'ui-bootstrap-tpls', 'jquery.spin', 'angular-flash', 'spin' ], (angular) ->
+define [ 'angular', 'graphService', 'EditParamsCtrl', 'ui-bootstrap-tpls', 'jquery.spin', 'angular-flash', 'spin' ], () ->
 
 
     graphControllerModule = angular.module 'osgUsageApp.controller.graph', ['osgUsageApp.graphService', 'osgUsageApp.controller.editparams', 'ui.bootstrap', 'ngAnimate', 'flash']
@@ -21,6 +21,7 @@ define [ 'angular', 'graphService', 'EditParamsCtrl', 'ui-bootstrap-tpls', 'jque
     graphControllerModule.controller 'GraphContoller',
 
         class GraphController
+            @$inject = [ '$scope', '$http', '$log', 'graphService', '$q', '$rootScope', '$modal', '$timeout', 'flash' ]
             constructor: (@$scope, @$http, @$log, @graphService, @$q, @$rootScope, @$modal, @$timeout, @flash) ->
 
                 @queryParams = @$scope.graphData.queryParams
@@ -173,8 +174,3 @@ define [ 'angular', 'graphService', 'EditParamsCtrl', 'ui-bootstrap-tpls', 'jque
                 copyFrom.remove();
                 @flash('Copied to clipboard')
                 return
-
-
-
-
-

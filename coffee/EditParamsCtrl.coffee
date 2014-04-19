@@ -1,4 +1,4 @@
-define [ 'angular', 'graphService', 'ui-bootstrap-tpls' ], (angular) ->
+define [ 'angular', 'graphService', 'ui-bootstrap-tpls' ], () ->
 
     editParamsControllerModule = angular.module 'osgUsageApp.controller.editparams', ['osgUsageApp.graphService', 'ui.bootstrap']
 
@@ -26,6 +26,7 @@ define [ 'angular', 'graphService', 'ui-bootstrap-tpls' ], (angular) ->
     editParamsControllerModule.controller 'EditParamsCtrl',
 
         class EditParamsCtrl
+            @$inject = ['$scope', '$log', '$modalInstance', 'queryParams', 'graphData', 'modalTitle']
             constructor: (@$scope, @$log, @$modalInstance, @queryParams, @graphData, @modalTitle) ->
                 @$scope.params = angular.copy(@queryParams)
                 @$scope.graphData = @graphData

@@ -1,9 +1,10 @@
-define [ 'angular', 'angular-resource' ], (angular) ->
+define [ 'angular', 'angular-resource' ], () ->
 
     graphModule = angular.module 'osgUsageApp.graphService', []
 
     graphModule.service 'graphService',
         class GraphService
+            @$inject = [ '$http', '$log', '$q' ]
             constructor: (@$http, @$log, @$q) ->
 
                 @graphFolder = 'graphFolder'
@@ -131,4 +132,3 @@ define [ 'angular', 'angular-resource' ], (angular) ->
                     reconstructedUrl = extractedUrl[1] + "/xml/" + extractedUrl[2]
                     # Now add the query params
                     @_createURL reconstructedUrl, queryParams
-

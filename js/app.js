@@ -1,7 +1,7 @@
 /*jslint devel: true */
 /*global define  */
 
-define([ 'angular', 'controllers', 'angular-route', 'graph', 'angular-animate' ], function (angular) {
+define([ 'angular', 'controllers', 'angular-route', 'graph', 'angular-animate' ], function () {
 
     var app = angular.module('osgUsageApp', ['ui.bootstrap', 'osgUsageApp.controllers', 'osgUsageApp.settings', 'ngRoute', 'osgUsageApp.controller.graph', 'ngAnimate', 'flash' ])
         .config([

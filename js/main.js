@@ -2,11 +2,6 @@ require.config({
 	paths: {
 		angular: 'angular',
 	},
-    map: {
-        '*': {
-            'jquery': 'jquery-1.11.0.min'
-        }
-    },
 	shim: {
         'ui-bootstrap-tpls': {
             'exports': 'angular',
@@ -35,7 +30,7 @@ require.config({
 
 		'angular' : {'exports' : 'angular'},
 
-        'jquery-1.11.0.min': {
+        'jquery': {
             'exports': '$'
         }
 
@@ -51,7 +46,7 @@ window.name = "NG_DEFER_BOOTSTRAP!";
 require([
     "angular",
     "app"
-    ], function(angular, app) {
+    ], function(angular_bad, app) {
 
      var $html = angular.element(document.getElementsByTagName('html')[0]);
      angular.element().ready(function(){
