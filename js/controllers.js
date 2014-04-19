@@ -137,6 +137,12 @@ $.parseParams = function(query) {
             $location.url(new_url);
         };
 
+        $scope.redirectToNewProfile = function() {
+            new_url = "/newprofile";
+            $log.info("Redirecting to new profile: " + new_url);
+            $location.url(new_url);
+        };
+
         $scope.updateProfileMenu = function(profiles) {
             profile_array = new Array();
             for (var key in profiles) {
@@ -151,7 +157,8 @@ $.parseParams = function(query) {
             settingsService.getProfiles().then(function(profiles) {
                 if (profiles == null) {
                     $log.info("No profiles detected...prompting for creation");
-                    $scope.launchProfileCreation();
+                    $scope.redirectToNewProfile();
+                    //$scope.launchProfileCreation();
                 } else {
                     $log.info("Received profiles");
                     $scope.updateProfileMenu(profiles);
@@ -234,7 +241,7 @@ $.parseParams = function(query) {
             delete $rootScope.profile
 
             // Redirect to the default profile
-            $scope.redirectToProfile('_default')
+            //$scope.redirectToProfile('_default')
 
             $scope.updateProfileMenu(null);
             $rootScope.$broadcast('profileUpdate');

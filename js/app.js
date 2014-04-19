@@ -1,9 +1,12 @@
 /*jslint devel: true */
 /*global define  */
 
-define([ 'angular', 'controllers', 'angular-route', 'graph', 'angular-animate' ], function () {
+define([ 'angular', 'controllers', 'angular-route', 'graph', 'angular-animate', 'NewProfileCtrl' ], function () {
 
-    var app = angular.module('osgUsageApp', ['ui.bootstrap', 'osgUsageApp.controllers', 'osgUsageApp.settings', 'ngRoute', 'osgUsageApp.controller.graph', 'ngAnimate', 'flash' ])
+    var app = angular.module('osgUsageApp', [   'ui.bootstrap', 'osgUsageApp.controllers',
+                                                'osgUsageApp.settings', 'ngRoute',
+                                                'osgUsageApp.controller.graph', 'ngAnimate',
+                                                'flash', 'osgUsageApp.controller.newProfileCtrl' ])
         .config([
             '$compileProvider',
             function ($compileProvider) {
@@ -23,6 +26,10 @@ define([ 'angular', 'controllers', 'angular-route', 'graph', 'angular-animate' ]
                     when('/profile/:profileId', {
                         templateUrl: 'html/graphs.html',
                         controller: 'GraphContainerCtrl'
+                    }).
+                    when('/newprofile', {
+                        templateUrl: 'html/newprofile.html',
+                        controller: 'NewProfileCtrl'
                     }).
                     otherwise({
                         redirectTo: '/profile/_default'
