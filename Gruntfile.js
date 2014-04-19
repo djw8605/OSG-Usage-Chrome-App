@@ -16,10 +16,6 @@ module.exports = function(grunt) {
       coffee_scripts: {
         files: ['coffee/*.coffee'],
         tasks: ['coffee']
-      },
-      scripts: {
-        files: ['js/*.js'],
-        tasks: ['requirejs']
       }
     },
 
@@ -101,5 +97,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-clean');
 
   grunt.registerTask('default', ['clean', 'coffee', 'requirejs', 'copy']);
+
 
 };
