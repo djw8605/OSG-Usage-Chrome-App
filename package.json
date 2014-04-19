@@ -1,0 +1,15 @@
+{
+  "name": "osg-gratia-share",
+  "devDependencies": {
+    "karma": "^0.12.9",
+    "karma-jasmine": "^0.1.5",
+    "karma-chrome-launcher": "^0.1.3",
+    "grunt-contrib-coffee": "^0.10.1",
+    "grunt": "^0.4.4",
+    "grunt-contrib-requirejs": "^0.4.3",
+    "requirejs": "^2.1.11",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-clean": "^0.5.0"
+  }
+}
