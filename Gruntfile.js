@@ -19,7 +19,7 @@ module.exports = function(grunt) {
       },
       scripts: {
         files: ['js/*.js'],
-        tasks: ['requirejs']
+        tasks: ['requirejs:compile']
       }
     },
 
@@ -56,6 +56,15 @@ module.exports = function(grunt) {
         options: {
           baseUrl: "css",
           dir: '<%= destinationFolder %>/css/'
+        }
+      },
+      noopt: {
+        options: {
+          mainConfigFile: 'requireConfig.js',
+          baseUrl: "js",
+          optimize: 'none',
+          name: 'main',
+          dir: '<%= destinationFolder %>/js'
         }
       }
     },
@@ -100,6 +109,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-contrib-clean');
 
-  grunt.registerTask('default', ['clean', 'coffee', 'requirejs', 'copy']);
+  grunt.registerTask('default', ['clean', 'coffee', 'requirejs:compile', 'copy']);
+  grunt.registerTask('debug', ['clean', 'coffee', 'requirejs:noopt', 'copy'])
+
+
 
 };
