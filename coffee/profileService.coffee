@@ -21,16 +21,16 @@ define ['angular', 'angular-resource', 'settings' ], () ->
                     getProfile_defer.resolve(profile)
                 else
                     # Now try to get the profile from the webservice
-                    downloaded_profile = $resource("/profile/#{profileId}").get {}, =>
+                    downloaded_profile = @$resource("/api/profile/#{profileId}").get {}, =>
 
-                        $log.info("Got profile from webservice")
-                        $log.info(downloaded_profile)
+                        @$log.info("Got profile from webservice")
+                        @$log.info(downloaded_profile)
 
                         profile = JSON.parse(downloaded_profile.profile_json)
                         profile.id = downloaded_profile.id
                         getProfile_defer.resolve(profile)
                     , =>
-                        $log.info("error getting profile from websrevice")
+                        @$log.info("error getting profile from websrevice")
                         getProfile_defer.reject()
 
             return getProfile_defer.promise
