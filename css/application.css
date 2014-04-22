@@ -456,27 +456,30 @@ transform: translate(100%, 0);
 }
 
 .profile-heading > div {
+    color: white;
     position: absolute;
     top: 50px
 }
 
 .profile-heading:after {
+    /*
     background-image: url(http://gratiaweb.grid.iu.edu/gratiastatic/today/osg_wall_hours.png);
-    filter: blur(2px);
+     filter: blur(2px);
     -webkit-filter: blur(2px);
     -moz-filter: blur(2px);
     -o-filter: blur(2px);
-
+    */
     display: block;
     background-repeat: no-repeat;
     background-position: center;
+    background-color: #354B5E;
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    opacity : 0.2;
+    opacity : 1.0;
     z-index: -1;
 
 }
