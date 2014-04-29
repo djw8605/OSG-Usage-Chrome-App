@@ -9,23 +9,32 @@
         </div>
     </div>
     <div class="row text-center">
-        <div class="col-md-4 profile-selection">
+        <div class="col-md-4 profile-selection" ng-click="osgUserShow = true">
             <h2>OSG User</h2>
             <p>
             The OSG User template shows the usage of resources for a particular user(s) or projects(s).
             </p>
+            <div ng-show="osgUserShow">
+                Enter the following options:
+            </div>
         </div>
-        <div class="col-md-4 profile-selection">
+        <div class="col-md-4 profile-selection" ng-click="resourceOwnerShow = true">
             <h2>Resource Owner</h2>
             <p>
             The Resource Owner template shows the resource usage of many users on a set of resources.
             </p>
+            <div ng-show="resourceOwnerShow">
+                Enter the following options:
+            </div>
         </div>
-        <div class="col-md-4 profile-selection">
+        <div class="col-md-4 profile-selection" ng-click="voManagerShow = true">
             <h2>VO Manager</h2>
             <p>
             The VO Manager template shows the usage of resources for a particular VO.
             </p>
+            <div ng-show="voManagerShow" >
+                Enter the following options:
+            </div>
         </div>
     </div>
     <div class="row">
